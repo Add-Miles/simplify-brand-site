@@ -4,64 +4,58 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simplify — 用科技简化生活</title>
-    <meta name="description" content="Simplify 是一家科技公司，业务涵盖云计算、量化金融与人工智能应用开发。">
+    <meta name="description" content="Simplify 是一家科技公司，业务涵盖云计算、量化金融与人工智能应用。">
     <meta name="theme-color" content="#040612">
     <link rel="canonical" href="https://add-miles.github.io/simplify-brand-site/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Simplify">
     <meta property="og:title" content="Simplify — 用科技简化生活">
-    <meta property="og:description" content="Simplify 是一家科技公司，业务涵盖云计算、量化金融与人工智能应用开发。">
+    <meta property="og:description" content="Simplify 是一家科技公司，业务涵盖云计算、量化金融与人工智能应用。">
     <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Simplify — 用科技简化生活">
-    <meta name="twitter:description" content="Simplify 是一家科技公司，业务涵盖云计算、量化金融与人工智能应用开发。">
-    <link rel="icon" href="assets/simplify-favicon-v2.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="assets/simplify-favicon-v2.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/site.css">
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <div class="bg-earth" id="bg-earth" aria-hidden="true">
+    <div class="bg" id="bg" aria-hidden="true">
       <video
-        class="bg-earth-video"
-        id="earth-video"
+        class="bg-video"
+        id="bg-video"
         muted
         loop
         playsinline
-        webkit-playsinline
         preload="none"
         poster="assets/video/earth-poster.jpg"
         disablepictureinpicture
-        disableremoteplayback
       >
         <source src="assets/video/earth-bg.mp4" type="video/mp4">
       </video>
-      <div class="bg-earth-veil"></div>
-      <div class="bg-earth-depth"></div>
-      <div class="bg-earth-vignette"></div>
+      <div class="bg-veil"></div>
+      <div class="bg-depth"></div>
     </div>
 
-    <header class="site-header" id="site-header" data-scroll="0">
+    <header class="header" id="header" data-at-top="true">
       <div class="header-shell">
-        <nav class="nav-bar" aria-label="主导航">
+        <nav class="nav" aria-label="主导航">
           <a class="brand" href="./" aria-label="Simplify 首页">
-            <img class="brand-logo" src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="160" height="34">
+            <img src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="148" height="32">
           </a>
 
-          <div class="nav-tabs" id="site-menu">
-            <a class="nav-tab is-active" href="./" aria-current="page">首页</a>
-            <a class="nav-tab" href="#sectors">业务</a>
-            <a class="nav-tab" href="#products">产品</a>
-            <a class="nav-tab" href="#contact">联系</a>
-            <a class="nav-tab" href="https://simplify-net.com/zh-cn/careers/">招聘</a>
-            <a class="nav-tab" href="https://simplify-net.com/zh-cn/about/">关于</a>
+          <div class="nav-links" id="nav-links">
+            <a class="nav-link is-active" href="./" aria-current="page">首页</a>
+            <a class="nav-link" href="#biz">业务</a>
+            <a class="nav-link" href="#product">产品</a>
+            <a class="nav-link" href="#contact">联系</a>
+            <a class="nav-link" href="https://simplify-net.com/zh-cn/careers/">招聘</a>
+            <a class="nav-link" href="https://simplify-net.com/zh-cn/about/">关于</a>
           </div>
 
-          <div class="nav-actions">
-            <a class="btn btn-primary" href="https://flashlaunch.net/" target="_blank" rel="noopener">申请访问</a>
-            <button class="nav-toggle" type="button" aria-controls="site-menu" aria-expanded="false" id="nav-toggle">
-              <span class="sr-only">打开导航</span>
-              <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span></span>
+          <div class="nav-end">
+            <a class="btn btn-solid" href="https://flashlaunch.net/" target="_blank" rel="noopener">申请访问</a>
+            <button class="menu-btn" type="button" id="menu-btn" aria-controls="nav-links" aria-expanded="false">
+              <span class="sr-only">菜单</span>
+              <span class="menu-icon" aria-hidden="true"></span>
             </button>
           </div>
         </nav>
@@ -69,174 +63,160 @@
     </header>
 
     <main id="main">
+      <!-- Hero：品牌命题 + 一句说明 + 两个动作 -->
       <section class="hero" id="hero">
-        <div class="container hero-stage">
-          <div class="hero-copy" data-reveal>
-            <img class="hero-logo" src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="420" height="90">
-            <h1 class="hero-title">用科技简化生活</h1>
-            <p class="hero-lead line-once">云计算 · 量化金融 · 人工智能应用，以可验证能力服务真实业务。</p>
-            <div class="hero-actions">
-              <a class="btn btn-light" href="#sectors">了解业务</a>
-              <a class="btn btn-ghost" href="#products">Flash Launch</a>
+        <div class="wrap hero-inner" data-reveal>
+          <img class="hero-mark" src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="360" height="76">
+          <h1 class="hero-h1">用科技简化生活</h1>
+          <p class="hero-p">云计算、量化金融、人工智能应用。</p>
+          <div class="btn-row">
+            <a class="btn btn-solid" href="#biz">了解业务</a>
+            <a class="btn btn-line" href="#product">Flash Launch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 公司：一段正式陈述，不重复愿景标题 -->
+      <section class="block" id="about">
+        <div class="wrap about-grid" data-reveal>
+          <h2 class="h2">公司</h2>
+          <div class="about-text">
+            <p>Simplify 是一家科技公司，聚焦云计算、量化金融与人工智能应用。</p>
+            <p>关注软件交付、研究分析与协作系统中的关键环节：发布是否可控、结论是否可复核、工具是否具备长期使用价值。云计算已可申请使用；量化金融与人工智能应用仍在建设，欢迎洽谈合作。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 业务：三条等权横栏（非卡片、非大小不均） -->
+      <section class="block" id="biz">
+        <div class="wrap">
+          <h2 class="h2" data-reveal>业务</h2>
+          <div class="biz-table" role="list">
+            <a class="biz-row" href="#product" role="listitem" data-reveal>
+              <span class="biz-name">云计算</span>
+              <span class="biz-status is-on">已开放</span>
+              <span class="biz-desc">构建、部署与运行</span>
+              <span class="biz-go">Flash Launch →</span>
+            </a>
+            <a class="biz-row" href="#contact" role="listitem" data-reveal>
+              <span class="biz-name">量化金融</span>
+              <span class="biz-status">建设中</span>
+              <span class="biz-desc">研究、回测与风险管理</span>
+              <span class="biz-go">合作洽谈 →</span>
+            </a>
+            <a class="biz-row" href="#contact" role="listitem" data-reveal>
+              <span class="biz-name">人工智能应用</span>
+              <span class="biz-status">建设中</span>
+              <span class="biz-desc">场景系统与工作流</span>
+              <span class="biz-go">合作洽谈 →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 产品：仅一主产品 -->
+      <section class="block" id="product">
+        <div class="wrap product-grid" data-reveal>
+          <div>
+            <h2 class="h2">Flash Launch</h2>
+            <p class="product-tag">云计算 · 对外产品</p>
+            <p class="prose">面向研发团队与开发者，提供部署、域名与运行环境相关能力，现开放访问申请。</p>
+            <div class="btn-row">
+              <a class="btn btn-solid" href="https://flashlaunch.net/" target="_blank" rel="noopener">访问产品</a>
+              <a class="btn btn-line" href="https://simplify-net.com/zh-cn/products/flash-launch/">产品说明</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section about" id="about-lite">
-        <div class="container about-panel" data-reveal>
-          <h2 class="about-title">公司</h2>
-          <p class="about-lead line-once">Simplify 是科技公司，聚焦云计算、量化金融与人工智能应用的建设与落地。</p>
-        </div>
-      </section>
-
-      <section class="section sectors" id="sectors">
-        <div class="container">
-          <h2 class="section-title section-title-display sectors-title" data-reveal>业务</h2>
-
-          <!-- 三角构图：上顶一柱 · 下底两柱，三块同等体量 -->
-          <div class="biz-triangle" role="list">
-            <a class="biz-item biz-item--apex" href="#products" role="listitem" data-reveal>
-              <div class="biz-item-top">
-                <h3>云计算</h3>
-                <span class="status-pill is-live">已开放</span>
-              </div>
-              <p class="biz-desc line-once">构建、部署与运行 · Flash Launch</p>
-              <span class="biz-action">产品入口 →</span>
-            </a>
-
-            <a class="biz-item" href="#contact" role="listitem" data-reveal data-reveal-delay="1">
-              <div class="biz-item-top">
-                <h3>量化金融</h3>
-                <span class="status-pill">建设中</span>
-              </div>
-              <p class="biz-desc line-once">研究、回测与风险管理</p>
-              <span class="biz-action">合作洽谈 →</span>
-            </a>
-
-            <a class="biz-item" href="#contact" role="listitem" data-reveal data-reveal-delay="2">
-              <div class="biz-item-top">
-                <h3>人工智能应用</h3>
-                <span class="status-pill">建设中</span>
-              </div>
-              <p class="biz-desc line-once">场景系统与工作流落地</p>
-              <span class="biz-action">合作洽谈 →</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section product" id="products">
-        <div class="container product-panel" data-reveal>
-          <div class="product-copy">
-            <h2 class="section-title">Flash Launch</h2>
-            <p class="product-tagline line-once">云计算业务线 · 对外产品</p>
-            <p class="section-copy line-once">面向研发团队与开发者，提供部署、域名与运行能力，现开放访问申请。</p>
-            <div class="hero-actions">
-              <a class="btn btn-light" href="https://flashlaunch.net/" target="_blank" rel="noopener">访问产品</a>
-              <a class="btn btn-ghost" href="https://simplify-net.com/zh-cn/products/flash-launch/">产品说明</a>
-            </div>
-          </div>
-          <ul class="product-facts" aria-label="能力范围">
-            <li><strong>构建</strong><span>代码与静态产物</span></li>
-            <li><strong>发布</strong><span>部署、域名、环境</span></li>
-            <li><strong>运行</strong><span>上线访问与迭代</span></li>
+          <ul class="product-meta">
+            <li><strong>构建</strong> 代码与静态产物</li>
+            <li><strong>发布</strong> 部署、域名、环境</li>
+            <li><strong>运行</strong> 上线访问与迭代</li>
           </ul>
         </div>
       </section>
 
-      <section class="section connect" id="contact">
-        <div class="container">
-          <h2 class="section-title section-title-display contact-title" data-reveal>联系</h2>
-
-          <div class="connect-grid connect-grid-3">
-            <article class="connect-card" data-reveal>
-              <div class="connect-body">
-                <h3 class="connect-heading">业务合作</h3>
-                <p class="section-copy line-once">邮件沟通时请注明机构背景与合作意向。</p>
-                <a class="contact-mail" href="mailto:career@simplify-net.com?subject=业务合作咨询">career@simplify-net.com</a>
-              </div>
-              <a class="btn btn-ghost" href="mailto:career@simplify-net.com?subject=业务合作咨询">发送邮件</a>
+      <!-- 联系 -->
+      <section class="block" id="contact">
+        <div class="wrap">
+          <h2 class="h2" data-reveal>联系</h2>
+          <div class="contact-grid">
+            <article class="contact-card" data-reveal>
+              <h3>业务合作</h3>
+              <p>邮件请注明机构背景与合作意向。</p>
+              <a class="mail" href="mailto:career@simplify-net.com?subject=业务合作咨询">career@simplify-net.com</a>
             </article>
-
-            <article class="connect-card" data-reveal data-reveal-delay="1">
-              <div class="connect-body">
-                <h3 class="connect-heading">人才招聘</h3>
-                <p class="section-copy line-once">职位见招聘页，也可邮件说明应聘意向。</p>
-              </div>
-              <div class="connect-actions">
-                <a class="btn btn-light" href="https://simplify-net.com/zh-cn/careers/">招聘页面</a>
-                <a class="btn btn-ghost" href="mailto:career@simplify-net.com?subject=求职申请">投递邮件</a>
+            <article class="contact-card" data-reveal>
+              <h3>人才招聘</h3>
+              <p>职位见招聘页，也可邮件说明意向。</p>
+              <div class="btn-row">
+                <a class="btn btn-solid btn-sm" href="https://simplify-net.com/zh-cn/careers/">招聘页面</a>
+                <a class="btn btn-line btn-sm" href="mailto:career@simplify-net.com?subject=求职申请">投递邮件</a>
               </div>
             </article>
-
-            <article class="connect-card" data-reveal data-reveal-delay="2">
-              <div class="connect-body">
-                <h3 class="connect-heading">社交媒体</h3>
-                <p class="section-copy line-once">小红书与抖音账号筹备中，启用后公布。</p>
-              </div>
-              <div class="social-row">
-                <span class="social-chip is-pending" title="链接待公布">小红书</span>
-                <span class="social-chip is-pending" title="链接待公布">抖音</span>
+            <article class="contact-card" data-reveal>
+              <h3>社交媒体</h3>
+              <p>小红书与抖音账号筹备中。</p>
+              <div class="chip-row">
+                <span class="chip is-off">小红书</span>
+                <span class="chip is-off">抖音</span>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section cta-band">
-        <div class="container cta-inner" data-reveal>
-          <div class="cta-copy">
-            <h2 class="section-title section-title-cta line-once">了解产品与公司</h2>
-          </div>
-          <div class="hero-actions cta-actions">
-            <a class="btn btn-light" href="https://flashlaunch.net/" target="_blank" rel="noopener">申请访问</a>
-            <a class="btn btn-ghost" href="https://simplify-net.com/zh-cn/about/">关于公司</a>
+      <section class="block block-cta">
+        <div class="wrap cta-row" data-reveal>
+          <h2 class="h2">了解产品与公司</h2>
+          <div class="btn-row">
+            <a class="btn btn-solid" href="https://flashlaunch.net/" target="_blank" rel="noopener">申请访问</a>
+            <a class="btn btn-line" href="https://simplify-net.com/zh-cn/about/">关于公司</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <div class="footer-brand">
-            <img class="footer-logo" src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="140" height="30">
-          </div>
-          <p class="footer-note">用科技简化生活</p>
-          <nav class="language-switcher" aria-label="语言">
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <img src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="130" height="28">
+          <p>用科技简化生活</p>
+          <div class="lang">
             <a href="https://simplify-net.com/" lang="en">English</a>
             <a href="./" lang="zh-CN" aria-current="true">简体中文</a>
-          </nav>
+          </div>
         </div>
-        <div class="footer-column">
+
+        <div class="footer-col">
           <h2>网站导航</h2>
-          <div class="footer-nav-grid">
+          <div class="footer-nav-2">
             <a href="./">首页</a>
-            <a href="#sectors">业务</a>
-            <a href="#products">产品</a>
+            <a href="#biz">业务</a>
+            <a href="#product">产品</a>
             <a href="#contact">联系</a>
             <a href="https://simplify-net.com/zh-cn/careers/">招聘</a>
             <a href="https://simplify-net.com/zh-cn/about/">关于</a>
           </div>
         </div>
-        <div class="footer-column">
+
+        <div class="footer-col">
           <h2>产品</h2>
           <a href="https://simplify-net.com/zh-cn/products/flash-launch/">Flash Launch</a>
           <a href="https://flashlaunch.net/" target="_blank" rel="noopener">FlashLaunch.net</a>
         </div>
-        <div class="footer-column">
+
+        <div class="footer-col">
           <h2>联系</h2>
           <a href="mailto:career@simplify-net.com">career@simplify-net.com</a>
         </div>
-        <div class="footer-column">
+
+        <div class="footer-col">
           <h2>法律</h2>
           <a href="https://simplify-net.com/zh-cn/legal/privacy/">隐私政策</a>
           <a href="https://simplify-net.com/zh-cn/legal/terms/">服务条款</a>
           <a href="https://simplify-net.com/zh-cn/legal/security/">安全说明</a>
         </div>
       </div>
-      <div class="container footer-bottom">
+      <div class="wrap footer-bar">
         <span>© 2026 Simplify</span>
       </div>
     </footer>

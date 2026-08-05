@@ -1,46 +1,36 @@
-# Simplify 品牌首页（稳定演示版 v1.0）
+# Simplify 品牌首页
 
-公司品牌站首页原型。愿景：**用科技简化生活**。业务：云计算 · 量化金融 · AI 应用。
+**Design read：** 科技公司品牌站 · 深蓝研究机构气质（幻方方向）· 正式中文  
+**Skill：** design-taste-frontend + redesign-existing-projects + frontend-design
 
-## 在线演示
+## 演示
 
-GitHub Pages 发布后：
-
-**https://add-miles.github.io/simplify-brand-site/**
-
-## 本地预览
+https://add-miles.github.io/simplify-brand-site/
 
 ```bash
-cd simplify-brand-site
 python3 -m http.server 5173
 # http://localhost:5173
 ```
 
-## 内容结构（成熟科技公司首页）
+## 信息架构
 
-| 区块 | 作用 |
+| 区块 | 内容 |
 |------|------|
-| Hero | 品牌与一句话定位 |
-| 公司 | 我们做什么、现阶段 |
-| 业务 | 三条线 + 明确状态（可用 / 建设中） |
-| 产品 | Flash Launch（云计算入口） |
-| 联系 | 合作邮箱、招聘、社交（待补） |
-| Footer | 导航、法律、语言 |
+| Hero | 品牌 + 愿景 + 一句业务 + 两个 CTA |
+| 公司 | 一段正式说明（不重复愿景大标题） |
+| 业务 | 三条等权横栏（云计算 / 量化 / AI） |
+| 产品 | Flash Launch |
+| 联系 | 合作 / 招聘 / 社交 |
+| Footer | 导航两列六项 · 法律 · 版权 |
 
-## 已确认事实
+## 已锁定事实
 
-- 愿景：用科技简化生活
-- 产品：Flash Launch → https://flashlaunch.net/
-- 招聘 / 合作邮箱（来自官网）：career@simplify-net.com
-- 法律页、关于页、招聘页链至 simplify-net.com
-- 小红书 / 抖音链接待补
+- 愿景：用科技简化生活  
+- 产品：Flash Launch → flashlaunch.net  
+- 邮箱：career@simplify-net.com  
+- 法律 / 关于 / 招聘 → simplify-net.com  
 
-## 文案原则
+## 性能
 
-- 短句、具体、标明状态，避免口号堆叠
-- 参考：`humanizer-zh`、`brand-voice`、Anthropic `frontend-design` 写作部分
-
-## 技术
-
-静态站：`index.html` + `css/site.css` + `js/site.js`  
-无构建步骤，可直接 GitHub Pages 托管。
+- 手机仅海报，不播背景视频  
+- 滚动变量量化、离首屏暂停视频  
