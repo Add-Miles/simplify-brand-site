@@ -40,13 +40,14 @@
 
   if (useVideo) {
     video.addEventListener("canplay", play, { once: true });
+    // mild start nudge
+    setTimeout(play, 400);
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) pause();
       else if ((scrollY || 0) < (hero?.offsetHeight || 500) * 0.65) play();
     });
   }
 
-  /* scroll: quantized CSS vars — less paint thrash */
   let ticking = false;
   let lastS = -1;
   let lastScene = -1;
@@ -109,28 +110,28 @@
     });
   }
 
-  /* active nav */
   const map = new Map();
-  document.querySelectorAll(".nav-link").forEach((el) => {
+  document.querySelectorAll(".nav-a").forEach((el) => {
     const href = el.getAttribute("href") || "";
     if (href.startsWith("#")) map.set(href.slice(1), el);
   });
+
   const setActive = (id) => {
-    document.querySelectorAll(".nav-link").forEach((el) => {
-      el.classList.remove("is-active");
+    document.querySelectorAll(".nav-a").forEach((el) => {
+      el.classList.remove("is-on");
       el.removeAttribute("aria-current");
     });
     if (!id) {
-      const home = document.querySelector('.nav-link[href="./"]');
+      const home = document.querySelector('.nav-a[href="./"]');
       if (home) {
-        home.classList.add("is-active");
+        home.classList.add("is-on");
         home.setAttribute("aria-current", "page");
       }
       return;
     }
     const t = map.get(id);
     if (t) {
-      t.classList.add("is-active");
+      t.classList.add("is-on");
       t.setAttribute("aria-current", "page");
     }
   };
@@ -158,7 +159,6 @@
     );
   }
 
-  /* reveal */
   const nodes = document.querySelectorAll("[data-reveal]");
   if (reduceMotion || !("IntersectionObserver" in window)) {
     nodes.forEach((el) => el.classList.add("is-in"));
