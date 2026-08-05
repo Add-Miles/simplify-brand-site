@@ -4,94 +4,110 @@
   const menu = document.getElementById("site-menu");
   const root = document.documentElement;
   const earthVideo = document.getElementById("earth-video");
-
   const hero = document.getElementById("hero");
+  const bgEarth = document.getElementById("bg-earth");
 
-  // ── Earth video: always play in hero (brand atmosphere)
-  let allowPlay = true;
+  const reduceMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer =
+    window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+  const smallView = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+  // Mobile / reduced-motion: poster only — main source of stutter
+  const useVideo = !reduceMotion && !coarsePointer && !smallView && earthVideo;
 
-  if (earthVideo) {
-    const tryPlay = () => {
-      if (document.hidden || !allowPlay) return;
-      earthVideo.muted = true;
-      earthVideo.defaultMuted = true;
-      earthVideo.volume = 0;
-      earthVideo.playsInline = true;
-      earthVideo.loop = true;
-      earthVideo.setAttribute("muted", "");
-      earthVideo.setAttribute("playsinline", "");
-      earthVideo.setAttribute("webkit-playsinline", "");
-      const p = earthVideo.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    };
-
-    try {
-      if (earthVideo.readyState < 2) earthVideo.load();
-    } catch (_) {}
-    tryPlay();
-    ["canplay", "canplaythrough", "loadeddata", "loadedmetadata"].forEach((ev) => {
-      earthVideo.addEventListener(ev, tryPlay);
-    });
-    setInterval(() => {
-      if (!document.hidden && allowPlay && earthVideo.paused) tryPlay();
-    }, 1200);
-    earthVideo.addEventListener("ended", () => {
-      earthVideo.currentTime = 0.01;
-      tryPlay();
-    });
-    const unlock = () => tryPlay();
-    window.addEventListener("pointerdown", unlock, { passive: true });
-    window.addEventListener("touchstart", unlock, { passive: true });
-    window.addEventListener("scroll", unlock, { passive: true });
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) earthVideo.pause();
-      else tryPlay();
-    });
-
-    // expose for scene handler
-    window.__tryPlayEarth = tryPlay;
+  if (earthVideo && !useVideo) {
+    earthVideo.removeAttribute("autoplay");
+    earthVideo.pause();
+    earthVideo.removeAttribute("src");
+    earthVideo.querySelectorAll("source").forEach((s) => s.remove());
+    earthVideo.load();
+    earthVideo.style.display = "none";
+    if (bgEarth) bgEarth.classList.add("is-static");
   }
 
-  // ── Scroll: nav morph + scene recede (video calms after hero)
-  const MORPH_RANGE = 180;
+  let videoPlaying = false;
+
+  const playVideo = () => {
+    if (!useVideo || document.hidden || videoPlaying) return;
+    earthVideo.muted = true;
+    earthVideo.defaultMuted = true;
+    earthVideo.playsInline = true;
+    const p = earthVideo.play();
+    if (p && typeof p.catch === "function") {
+      p.then(() => {
+        videoPlaying = true;
+      }).catch(() => {});
+    } else {
+      videoPlaying = true;
+    }
+  };
+
+  const pauseVideo = () => {
+    if (!useVideo || !videoPlaying) return;
+    earthVideo.pause();
+    videoPlaying = false;
+  };
+
+  if (useVideo) {
+    earthVideo.preload = "metadata";
+    // Start only when near-ready (avoid early thrash)
+    const onReady = () => playVideo();
+    if (earthVideo.readyState >= 2) onReady();
+    else earthVideo.addEventListener("canplay", onReady, { once: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) pauseVideo();
+      else if ((window.scrollY || 0) < (hero?.offsetHeight || 600) * 0.7) playVideo();
+    });
+  }
+
+  // ── Scroll: nav morph + scene (batched, quantized — fewer style writes)
+  const MORPH_RANGE = 160;
   let ticking = false;
+  let lastScrollQ = -1;
+  let lastSceneQ = -1;
+  let lastScrollMode = "";
 
   const updateScroll = () => {
     const y = window.scrollY || 0;
 
-    // nav pill
-    const t = Math.min(1, Math.max(0, y / MORPH_RANGE));
-    const eased = t * t * (3 - 2 * t);
-    root.style.setProperty("--scroll", eased.toFixed(4));
-    if (header) {
-      header.dataset.scroll = y < 6 ? "0" : "1";
+    // Quantize to cut continuous --scroll/scene updates (lag source)
+    const scrollT = Math.min(1, Math.max(0, y / MORPH_RANGE));
+    const scrollQ = Math.round(scrollT * 20) / 20; // 0.05 steps
+    if (scrollQ !== lastScrollQ) {
+      lastScrollQ = scrollQ;
+      const eased = scrollQ * scrollQ * (3 - 2 * scrollQ);
+      root.style.setProperty("--scroll", eased.toFixed(2));
     }
 
-    // scene: 0 while mostly in hero, → 1 as we leave hero into content
+    const mode = y < 8 ? "0" : "1";
+    if (header && mode !== lastScrollMode) {
+      lastScrollMode = mode;
+      header.dataset.scroll = mode;
+    }
+
     let scene = 0;
     if (hero) {
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      const start = heroBottom * 0.35;
-      const end = heroBottom * 0.95;
+      const heroH = hero.offsetHeight || 1;
+      const start = heroH * 0.4;
+      const end = heroH * 0.9;
       if (y <= start) scene = 0;
       else if (y >= end) scene = 1;
       else scene = (y - start) / (end - start);
-      scene = scene * scene * (3 - 2 * scene); // smoothstep
     }
-    root.style.setProperty("--scene", scene.toFixed(4));
-
-    // pause video past hero — freezes last frame as calm atmosphere
-    if (earthVideo) {
-      if (scene > 0.55) {
-        allowPlay = false;
-        if (!earthVideo.paused) earthVideo.pause();
-      } else {
-        allowPlay = true;
-        if (earthVideo.paused && !document.hidden && window.__tryPlayEarth) {
-          window.__tryPlayEarth();
-        }
+    const sceneQ = Math.round(scene * 10) / 10; // 0.1 steps
+    if (sceneQ !== lastSceneQ) {
+      lastSceneQ = sceneQ;
+      root.style.setProperty("--scene", sceneQ.toFixed(1));
+      if (bgEarth) {
+        bgEarth.classList.toggle("is-recessed", sceneQ >= 0.5);
       }
+    }
+
+    if (useVideo) {
+      if (sceneQ >= 0.5) pauseVideo();
+      else playVideo();
     }
 
     ticking = false;
@@ -122,8 +138,7 @@
     });
   }
 
-  // ── Active tab highlight on hash sections
-  const sectionIds = ["sectors", "products", "connect"];
+  // ── Active tab
   const tabMap = new Map();
   document.querySelectorAll(".nav-tab").forEach((tab) => {
     const href = tab.getAttribute("href") || "";
@@ -156,26 +171,25 @@
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]) setActiveTab(visible[0].target.id);
       },
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-40% 0px -45% 0px", threshold: [0.15, 0.4] }
     );
 
-    sectionIds.forEach((id) => {
+    ["sectors", "products", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });
 
-    const topCheck = () => {
-      if ((window.scrollY || 0) < 180) setActiveTab(null);
-    };
-    window.addEventListener("scroll", topCheck, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if ((window.scrollY || 0) < 160) setActiveTab(null);
+      },
+      { passive: true }
+    );
   }
 
-  // ── Reveal on enter
-  const reduceMotion =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // ── Reveal
   const nodes = document.querySelectorAll("[data-reveal]");
-
   if (reduceMotion || !("IntersectionObserver" in window)) {
     nodes.forEach((el) => el.classList.add("is-in"));
     return;
@@ -190,8 +204,7 @@
         }
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
+    { rootMargin: "0px 0px -6% 0px", threshold: 0.12 }
   );
-
   nodes.forEach((el) => io.observe(el));
 })();
