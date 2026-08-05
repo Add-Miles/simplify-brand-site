@@ -198,7 +198,8 @@ button {
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%);
 }
 
-body > *:not(.stage) {
+/* Content sits above the fixed stage background */
+body > *:not(.stage):not(.top) {
   position: relative;
   z-index: 1;
 }
@@ -206,7 +207,9 @@ body > *:not(.stage) {
 /* ════════ Header (LOCKED)
    Rule from product: full-width bar at top of page;
    on scroll shrinks to a fixed, always-visible glass capsule with frame.
-   Do not switch to “always capsule” or make the bar disappear. */
+   Do not switch to “always capsule” or make the bar disappear.
+   Must stay position:fixed — never relative/static or it scrolls away. */
+body > .top,
 .top {
   position: fixed;
   inset: 0 0 auto;
