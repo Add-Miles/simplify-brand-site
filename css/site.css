@@ -548,10 +548,11 @@ img {
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: var(--leading-tight);
-  text-wrap: pretty;
+  white-space: nowrap;
+  text-wrap: nowrap;
   margin-bottom: 1rem;
   text-shadow: 0 2px 32px rgba(0, 0, 0, 0.65);
-  max-width: 12em;
+  max-width: none;
 }
 
 .hero-lead {
@@ -639,27 +640,37 @@ img {
 }
 
 .section-lead {
-  max-width: 18em;
+  max-width: none;
+  min-width: 0;
 }
 
 .section-title {
-  font-size: var(--text-2xl);
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: var(--leading-tight);
-  text-wrap: pretty;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  text-wrap: nowrap;
+  white-space: nowrap;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
-  max-width: 14em;
+  max-width: none;
 }
 
 .section-title-sm {
-  font-size: var(--text-xl);
-  max-width: 12em;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 .section-title-cta {
-  font-size: var(--text-2xl);
-  max-width: 12em;
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
+.hero-title {
+  white-space: nowrap;
+  text-wrap: nowrap;
+  max-width: none;
 }
 
 .section-copy {
@@ -782,13 +793,13 @@ img {
 
 .sector-claim {
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: var(--leading-snug);
-  min-height: var(--claim-min-h);
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.4);
+  line-height: 1.4;
+  min-height: 0;
   text-wrap: pretty;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.4);
 }
 
 .sector-body {
@@ -796,7 +807,7 @@ img {
   font-size: 0.92rem;
   line-height: 1.65;
   margin-bottom: 1.1rem;
-  min-height: 5.8em;
+  min-height: 0;
   text-wrap: pretty;
 }
 
@@ -1256,8 +1267,23 @@ a.is-pending {
 
   .section-lead,
   .section-title,
-  .section-title-cta {
+  .section-title-sm,
+  .section-title-cta,
+  .hero-title {
     max-width: none;
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+
+  /* only narrow mobile: allow soft wrap if overflow is unavoidable */
+  @media (max-width: 480px) {
+    .section-title,
+    .section-title-sm,
+    .section-title-cta,
+    .hero-title {
+      white-space: normal;
+      text-wrap: balance;
+    }
   }
 
   .sector-claim,
