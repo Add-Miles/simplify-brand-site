@@ -531,12 +531,22 @@ img {
 }
 
 .hero-copy {
-  width: min(100%, 46rem);
+  width: min(100%, 52rem);
   max-width: none;
   padding: 0;
   background: transparent;
   border: 0;
   box-shadow: none;
+}
+
+.hero-lead {
+  width: 100%;
+  max-width: none;
+  color: rgba(236, 240, 255, 0.94);
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  line-height: 1.45;
+  margin: 0 0 2.25rem;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 
 .hero-logo {
@@ -663,9 +673,17 @@ img {
   white-space: nowrap;
 }
 
-/* About — one paragraph, no repeated vision */
+/* Single-line display lines — keep type compact and consistent */
+.line-once {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* About */
 .about-panel {
-  max-width: 48rem;
+  max-width: min(100%, 56rem);
 }
 
 .about-title {
@@ -674,63 +692,64 @@ img {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #a8d0ff;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
 }
 
 .about-lead {
   margin: 0;
-  font-size: clamp(1.15rem, 1.9vw, 1.4rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
   color: rgba(232, 238, 255, 0.94);
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-  max-width: 42rem;
 }
 
 .section-copy {
   color: rgba(220, 228, 248, 0.88);
-  max-width: var(--prose-width);
+  max-width: none;
   font-size: var(--text-lg);
-  line-height: var(--leading-body);
+  line-height: 1.5;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.4);
 }
 
-/* Business directory — typography-led, not rigid cards */
+/* Business triangle: apex (cloud) + two base (quant / AI), equal card size */
 .sectors-title,
 .contact-title {
-  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
-.biz-list {
+.biz-triangle {
+  --biz-w: min(100%, 22.5rem);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
+  grid-template-columns: var(--biz-w) var(--biz-w);
+  justify-content: center;
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  row-gap: clamp(1.5rem, 3vw, 2.25rem);
+  padding-top: 0.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .biz-item {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  padding: 2rem 1.5rem 1.85rem 0;
-  margin-right: 1.5rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 100%;
-  transition: background var(--base) var(--ease), transform var(--fast) var(--ease);
+  gap: 0.7rem;
+  width: var(--biz-w);
+  min-height: 9.5rem;
+  padding: 1.5rem 0 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: inherit;
+  transition: border-color var(--fast) var(--ease), opacity var(--fast) var(--ease);
 }
 
-.biz-item:last-child {
-  border-right: 0;
-  margin-right: 0;
-  padding-right: 0;
+.biz-item--apex {
+  grid-column: 1 / -1;
+  justify-self: center;
+  /* diamond tip marker via thin top accent */
+  border-top: 1px solid rgba(168, 208, 255, 0.35);
+  padding-top: 1.65rem;
 }
 
 .biz-item:hover {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.03),
-    transparent 80%
-  );
+  border-bottom-color: rgba(168, 208, 255, 0.4);
 }
 
 .biz-item:hover .biz-action {
@@ -739,14 +758,14 @@ img {
 
 .biz-item-top {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
 }
 
 .biz-item h3 {
   margin: 0;
-  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -756,29 +775,20 @@ img {
 .biz-desc {
   margin: 0;
   flex: 1;
-  color: rgba(200, 210, 235, 0.8);
-  font-size: 1rem;
-  line-height: 1.65;
-  max-width: 28em;
+  color: rgba(200, 210, 235, 0.82);
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
 .biz-action {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.5rem;
+  margin-top: auto;
   color: var(--accent);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
+  white-space: nowrap;
   transition: color var(--fast) var(--ease);
-}
-
-.biz-action span {
-  transition: transform var(--fast) var(--ease);
-}
-
-.biz-item:hover .biz-action span {
-  transform: translateX(3px);
 }
 
 .status-pill {
@@ -798,6 +808,18 @@ img {
   border-color: rgba(126, 182, 255, 0.4);
   color: #c5e0ff;
   background: rgba(126, 182, 255, 0.1);
+}
+
+/* Footer nav: 6 links → 2 columns */
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 1.5rem;
+  margin-top: 0.15rem;
+}
+
+.footer-nav-grid a {
+  white-space: nowrap;
 }
 
 /* Product */
@@ -1121,6 +1143,7 @@ a.is-pending {
 
 /* ════════ Responsive ════════ */
 @media (max-width: 960px) {
+  .biz-triangle,
   .biz-list,
   .about-columns,
   .product-panel,
@@ -1131,12 +1154,24 @@ a.is-pending {
     grid-template-columns: 1fr;
   }
 
+  .biz-triangle {
+    --biz-w: 100%;
+    justify-content: stretch;
+  }
+
   .biz-item,
-  .biz-item:last-child {
-    margin-right: 0;
-    padding: 1.75rem 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  .biz-item--apex {
+    width: 100%;
+    justify-self: stretch;
+    grid-column: auto;
+    min-height: 0;
+  }
+
+  /* mobile: allow natural wrap so Chinese is not clipped */
+  .line-once {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
   }
 
   .connect-card,
