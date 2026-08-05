@@ -203,11 +203,14 @@ body > *:not(.stage) {
   z-index: 1;
 }
 
-/* ════════ Header ════════ */
+/* ════════ Header (LOCKED)
+   Rule from product: full-width bar at top of page;
+   on scroll shrinks to a fixed, always-visible glass capsule with frame.
+   Do not switch to “always capsule” or make the bar disappear. */
 .top {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -223,19 +226,33 @@ body > *:not(.stage) {
   border-radius: calc(var(--scroll) * 999px);
   border: 1px solid rgba(255, 255, 255, calc(var(--scroll) * 0.14));
   background: rgba(5, 10, 26, calc(0.04 + var(--scroll) * 0.42));
-  overflow: hidden;
-  transition: box-shadow 0.25s var(--ease);
+  overflow: visible;
+  transition:
+    width 0.35s var(--ease),
+    max-width 0.35s var(--ease),
+    height 0.35s var(--ease),
+    border-radius 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    padding 0.35s var(--ease);
 }
 
+/* Page top: full bar */
 .top[data-at-top="true"] .top-shell {
   width: 100%;
   max-width: none;
-  border: 0;
+  border-color: transparent;
   border-radius: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
+/* Scrolled: glass capsule + frame (always stays fixed on top) */
 .top[data-at-top="false"] .top-shell {
+  border-color: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(16px) saturate(1.15);
   -webkit-backdrop-filter: blur(16px) saturate(1.15);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
@@ -440,6 +457,7 @@ body > *:not(.stage) {
   display: flex;
   align-items: center;
   padding: calc(var(--nav) + 2.5rem) 0 5.5rem;
+  padding-top: calc(var(--nav) + 2rem);
 }
 
 .hero-layout {
@@ -525,11 +543,229 @@ body > *:not(.stage) {
   margin-bottom: 2.25rem;
 }
 
+.band-head .team-lede,
+.team-lede {
+  margin-top: 1.15rem;
+  max-width: 40em;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: var(--fg-2);
+}
+
 .band-biz {
   background: linear-gradient(180deg, rgba(10, 18, 48, 0.25), transparent 60%);
 }
 
-/* About */
+/* Team — full leadership block (structure: headline → domains → roster → close)
+   copy source: https://simplify-net.com/zh-cn/leadership/ */
+.band-team {
+  padding-top: clamp(5rem, 10vw, 7.5rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.team-hero {
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.team-display {
+  margin-top: 0.65rem;
+  font-size: clamp(1.95rem, 3.8vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  white-space: normal;
+  max-width: 16em;
+}
+
+.team-meta {
+  margin-bottom: clamp(2.75rem, 5vw, 3.75rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line-2);
+}
+
+.team-kicker {
+  margin: 0 0 1.35rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.team-domains {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.team-domains li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1rem 1.25rem 0;
+  margin-right: 1rem;
+  border-right: 1px solid var(--line);
+}
+
+.team-domains li:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.team-domains span {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.team-domains strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.team-domains em {
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--fg-3);
+}
+
+.team-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.team-stats p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--fg-2);
+}
+
+.team-stats strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.team-system {
+  max-width: 42rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.team-sub {
+  margin-top: 0.55rem;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+}
+
+.people {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line-2);
+}
+
+.person {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  padding: 1.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.person:last-child {
+  border-bottom: 0;
+}
+
+.person-no {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.2rem;
+}
+
+.person-role {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.person h3 {
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.person h3 em {
+  margin-left: 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--fg-3);
+}
+
+.person-body p {
+  margin-top: 0.75rem;
+  max-width: 48em;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--fg-2);
+}
+
+.person-tags {
+  margin-top: 0.65rem !important;
+  font-size: 0.85rem !important;
+  color: var(--fg-3) !important;
+  letter-spacing: 0.02em;
+}
+
+.team-close {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line-2);
+  max-width: 40rem;
+}
+
+.team-close p {
+  margin: 0.85rem 0 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--fg-2);
+}
+
+.team-close .team-source,
+a.team-source {
+  display: inline-flex;
+  color: var(--fg);
+  border-bottom: 1px solid rgba(126, 182, 255, 0.45);
+  padding-bottom: 0.12rem;
+  font-size: 0.95rem;
+  transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.team-close .team-source:hover,
+a.team-source:hover {
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* About (legacy layout tokens kept) */
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -864,9 +1100,28 @@ body > *:not(.stage) {
   .about-layout,
   .product-layout,
   .tracks,
+  .team-domains,
+  .people,
   .contact-grid,
   .foot-grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-domains li,
+  .team-domains li:last-child {
+    margin: 0;
+    padding: 1rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .team-domains li:last-child {
+    border-bottom: 0;
+  }
+
+  .person {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    padding: 1.5rem 0;
   }
 
   .hero-orbit {
@@ -914,9 +1169,10 @@ body > *:not(.stage) {
 
   .nav-mid {
     position: fixed;
-    top: calc(var(--nav) + 10px);
+    top: calc(var(--nav) + 10px + var(--scroll) * 8px);
     left: 1rem;
     right: 1rem;
+    z-index: 201;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -924,12 +1180,18 @@ body > *:not(.stage) {
     padding: 0.8rem;
     border-radius: 18px;
     border: 1px solid var(--line-2);
-    background: rgba(6, 10, 24, 0.94);
+    background: rgba(6, 10, 24, 0.96);
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   }
 
   .top.is-open .nav-mid {
     display: flex;
+  }
+
+  .top.is-open .top-shell {
+    overflow: visible;
   }
 
   .nav-a {

@@ -52,6 +52,7 @@
   let lastScene = -1;
   let lastTop = null;
 
+  /* Header lock: full bar at top → capsule on scroll; never hide */
   const onScroll = () => {
     if (ticking) return;
     ticking = true;
@@ -66,6 +67,9 @@
       const atTop = y < 8;
       if (header && atTop !== lastTop) {
         lastTop = atTop;
+        header.dataset.atTop = String(atTop);
+      }
+      if (header && !header.dataset.atTop) {
         header.dataset.atTop = String(atTop);
       }
 
@@ -97,15 +101,24 @@
   onScroll();
 
   if (menuBtn && header && navLinks) {
-    menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const open = header.classList.toggle("is-open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
     navLinks.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => {
+        /* close mobile drawer only; header bar always stays */
         header.classList.remove("is-open");
         menuBtn.setAttribute("aria-expanded", "false");
       });
+    });
+    /* click outside closes drawer, not the bar */
+    document.addEventListener("click", (e) => {
+      if (!header.classList.contains("is-open")) return;
+      if (header.contains(e.target)) return;
+      header.classList.remove("is-open");
+      menuBtn.setAttribute("aria-expanded", "false");
     });
   }
 
@@ -145,7 +158,7 @@
       },
       { rootMargin: "-40% 0px -45% 0px", threshold: [0.15, 0.4] }
     );
-    ["biz", "product", "contact"].forEach((id) => {
+    ["biz", "product", "team", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
