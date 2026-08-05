@@ -8,9 +8,8 @@
   const hero = document.getElementById("hero");
 
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isMobile =
-    matchMedia("(max-width: 768px)").matches ||
-    matchMedia("(pointer: coarse)").matches;
+  /* Only narrow screens skip video; do not use pointer:coarse (false positives) */
+  const isMobile = matchMedia("(max-width: 640px)").matches;
   const useVideo = !reduceMotion && !isMobile && !!video;
 
   if (video && !useVideo) {
