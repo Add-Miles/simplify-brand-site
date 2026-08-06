@@ -8,7 +8,7 @@
   const hero = document.getElementById("hero");
 
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  /* Only narrow screens skip video; do not use pointer:coarse (false positives) */
+  /* Only very narrow screens skip video; do not use pointer:coarse */
   const isMobile = matchMedia("(max-width: 640px)").matches;
   const useVideo = !reduceMotion && !isMobile && !!video;
 
@@ -22,28 +22,87 @@
     if (bg) bg.classList.add("is-static");
   }
 
-  let playing = false;
-  const play = () => {
-    if (!useVideo || document.hidden || playing) return;
+  let wantPlay = false;
+  let unlockBound = false;
+
+  const hardMute = () => {
+    if (!video) return;
     video.muted = true;
+    video.defaultMuted = true;
+    video.volume = 0;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
     video.playsInline = true;
-    const p = video.play();
-    if (p && p.then) p.then(() => (playing = true)).catch(() => {});
-    else playing = true;
   };
+
+  const inHero = () => (scrollY || 0) < (hero?.offsetHeight || 700) * 0.85;
+
+  const play = () => {
+    if (!useVideo || document.hidden) return;
+    wantPlay = true;
+    hardMute();
+    if (video.ended) {
+      try {
+        video.currentTime = 0;
+      } catch (_) {}
+    }
+    const p = video.play();
+    if (p && typeof p.then === "function") {
+      p.then(() => {
+        if (bg) bg.classList.remove("is-static");
+      }).catch(() => {
+        bindUnlockOnce();
+      });
+    }
+  };
+
   const pause = () => {
-    if (!useVideo || !playing) return;
-    video.pause();
-    playing = false;
+    if (!useVideo) return;
+    wantPlay = false;
+    if (!video.paused) video.pause();
+  };
+
+  const bindUnlockOnce = () => {
+    if (unlockBound) return;
+    unlockBound = true;
+    const unlock = () => {
+      if (!wantPlay || document.hidden) return;
+      hardMute();
+      video.play().catch(() => {});
+    };
+    ["pointerdown", "touchstart", "keydown", "scroll"].forEach((ev) => {
+      document.addEventListener(ev, unlock, { passive: true, once: true });
+    });
   };
 
   if (useVideo) {
-    video.addEventListener("canplay", play, { once: true });
-    // mild start nudge
-    setTimeout(play, 400);
+    hardMute();
+    video.loop = true;
+    video.preload = "auto";
+
+    ["loadeddata", "canplay", "canplaythrough"].forEach((ev) => {
+      video.addEventListener(ev, play, { once: true });
+    });
+
+    /* Keep trying briefly until playback is confirmed */
+    let tries = 0;
+    const kick = setInterval(() => {
+      tries += 1;
+      if (!video.paused && !video.ended) {
+        clearInterval(kick);
+        return;
+      }
+      if (inHero() && !document.hidden) play();
+      if (tries >= 12) clearInterval(kick);
+    }, 500);
+
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) pause();
-      else if ((scrollY || 0) < (hero?.offsetHeight || 500) * 0.65) play();
+      if (document.hidden) {
+        if (!video.paused) video.pause();
+      } else if (wantPlay || inHero()) {
+        play();
+      }
     });
   }
 
@@ -90,7 +149,8 @@
       }
 
       if (useVideo) {
-        if (sq >= 0.5) pause();
+        /* Keep playing through most of the page; only dim far into content */
+        if (sq >= 0.85) pause();
         else play();
       }
       ticking = false;
@@ -129,23 +189,12 @@
   });
 
   const setActive = (id) => {
-    document.querySelectorAll(".nav-a").forEach((el) => {
-      el.classList.remove("is-on");
-      el.removeAttribute("aria-current");
+    map.forEach((el, key) => {
+      const on = key === id;
+      el.classList.toggle("is-on", on);
+      if (on) el.setAttribute("aria-current", "true");
+      else el.removeAttribute("aria-current");
     });
-    if (!id) {
-      const home = document.querySelector('.nav-a[href="./"]');
-      if (home) {
-        home.classList.add("is-on");
-        home.setAttribute("aria-current", "page");
-      }
-      return;
-    }
-    const t = map.get(id);
-    if (t) {
-      t.classList.add("is-on");
-      t.setAttribute("aria-current", "page");
-    }
   };
 
   if ("IntersectionObserver" in window) {
@@ -171,21 +220,20 @@
     );
   }
 
-  const nodes = document.querySelectorAll("[data-reveal]");
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    nodes.forEach((el) => el.classList.add("is-in"));
-  } else {
-    const rio = new IntersectionObserver(
+  if ("IntersectionObserver" in window) {
+    const rev = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add("is-in");
-            rio.unobserve(e.target);
+            rev.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
-    nodes.forEach((el) => rio.observe(el));
+    document.querySelectorAll("[data-reveal]").forEach((el) => rev.observe(el));
+  } else {
+    document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-in"));
   }
 })();
