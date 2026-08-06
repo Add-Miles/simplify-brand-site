@@ -3,38 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simplify — 用AI简化我们的生活</title>
-    <meta name="description" content="深圳简界智元科技有限公司（Simplify）：以 Flash Launch 为开发者云平台，并在其上构建 AI 应用与量化能力。">
-    <meta name="theme-color" content="#030812">
+    <title>Simplify — 让事情变简单</title>
+    <meta name="description" content="深圳简界智元科技有限公司。对外产品 Flash Launch：构建、部署与运行。应用与投研在推进。">
+    <meta name="theme-color" content="#000000">
     <link rel="canonical" href="https://add-miles.github.io/simplify-brand-site/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Simplify">
-    <meta property="og:title" content="Simplify — 用AI简化我们的生活">
-    <meta property="og:description" content="深圳简界智元科技有限公司：Flash Launch 开发者云平台，并延伸 AI 应用与量化能力。">
+    <meta property="og:title" content="Simplify — 让事情变简单">
+    <meta property="og:description" content="深圳简界智元科技有限公司。对外产品 Flash Launch：构建、部署与运行。">
     <meta property="og:locale" content="zh_CN">
     <link rel="icon" href="assets/simplify-favicon-v2.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/site.css?v=video-live">
+    <link rel="stylesheet" href="css/site.css?v=bg-ui">
   </head>
   <body>
-    <div class="stage" id="bg" aria-hidden="true">
-      <video
-        class="stage-video"
-        id="bg-video"
-        muted
-        loop
-        playsinline
-        webkit-playsinline
-        autoplay
-        preload="auto"
-        poster="assets/video/earth-poster.jpg"
-        disablepictureinpicture
-      >
-        <source src="assets/video/earth-bg.mp4" type="video/mp4">
-      </video>
-      <div class="stage-scrim"></div>
-      <div class="stage-glow"></div>
-      <div class="stage-grid"></div>
-    </div>
+    <!--
+      VOICE (brand-voice · article-writing · humanizer-zh)
+      语调：短句、可核验事实、不卖惨不骄傲。禁 AI 空话。
+      CTA 命名全站统一（design-taste 一意图一标签）：
+        打开 Flash Launch · 了解产品 · 商务合作 · 查看职位
+      市面参照：Linear/Vercel 首屏=价值一句+产品主 CTA；
+        Anthropic 谨慎不吹牛；幻方等研究型站克制、少口号。
+    -->
+    <div class="stage" aria-hidden="true"></div>
 
     <header class="top" id="header" data-at-top="true">
       <div class="top-shell">
@@ -46,12 +36,13 @@
             <a class="nav-a" href="#biz">业务</a>
             <a class="nav-a" href="#product">产品</a>
             <a class="nav-a" href="#team">团队</a>
+            <a class="nav-a" href="#background">背景</a>
             <a class="nav-a" href="#contact">联系</a>
             <a class="nav-a" href="https://simplify-net.com/zh-cn/careers/">招聘</a>
             <a class="nav-a" href="https://simplify-net.com/zh-cn/about/">关于</a>
           </div>
           <div class="nav-end">
-            <a class="btn btn-light" href="https://simplify-net.com/zh-cn/products/flash-launch/">访问 Flash Launch</a>
+            <a class="btn btn-light" href="https://flashlaunch.net/" target="_blank" rel="noopener">打开 Flash Launch</a>
             <button class="burger" type="button" id="menu-btn" aria-controls="nav-links" aria-expanded="false">
               <span class="sr">菜单</span>
               <i></i>
@@ -63,58 +54,45 @@
 
     <main id="main">
       <section class="hero" id="hero">
-        <div class="shell hero-layout">
-          <div class="hero-copy" data-reveal>
-            <p class="eyebrow">深圳简界智元科技有限公司 · Simplify</p>
-            <h1 class="display">用AI<br>简化我们的生活</h1>
-            <p class="lede">
-              以 Flash Launch 为开发者云平台，并在其上构建 AI 应用与量化能力。
-            </p>
-            <div class="actions">
-              <a class="btn btn-light" href="#biz">了解业务</a>
-              <a class="btn btn-ghost" href="#contact">商务联系</a>
-            </div>
+        <div class="shell hero-inner" data-reveal>
+          <p class="kicker">深圳简界智元科技有限公司</p>
+          <h1 class="display">让事情变简单</h1>
+          <p class="lede">
+            Flash Launch 把上线这件事变短。应用产品与部分投研工作，会在同一平台上陆续推开。
+          </p>
+          <div class="actions">
+            <a class="btn btn-light" href="https://flashlaunch.net/" target="_blank" rel="noopener">打开 Flash Launch</a>
+            <a class="btn btn-ghost" href="#contact">商务合作</a>
           </div>
         </div>
       </section>
 
-      <section class="band band-biz" id="biz">
+      <section class="band" id="biz">
         <div class="shell">
-          <div class="band-head" data-reveal>
-            <span class="eyebrow">业务</span>
-            <h2 class="title">平台 · 应用 · 能力</h2>
-            <p class="team-lede">
-              以云平台为底座：对外产品跑在 Flash Launch 上；量化金融为内部能力，暂不对外提供访问入口。
-            </p>
-          </div>
-
-          <div class="tracks">
-            <a class="track" href="#product" data-reveal>
-              <div class="track-top">
-                <span class="track-no">01</span>
-                <span class="tag tag-live">已开放</span>
+          <h2 class="title" data-reveal>我们在做的三件事</h2>
+          <div class="tracks" data-reveal>
+            <a class="track" href="#product">
+              <div class="track-meta">
+                <span class="tag tag-live">对外可用</span>
               </div>
-              <h3>云计算平台</h3>
-              <p>Flash Launch：构建、部署与运行一体化路径，服务研发团队与开发者。</p>
-              <span class="track-link">Flash Launch</span>
+              <h3>云平台</h3>
+              <p>Flash Launch 给研发团队用：构建、部署、域名与运行放在一处。</p>
+              <span class="track-link">看产品说明</span>
             </a>
-            <div class="track" data-reveal>
-              <div class="track-top">
-                <span class="track-no">02</span>
-                <span class="tag">内部运行</span>
+            <div class="track">
+              <div class="track-meta">
+                <span class="tag">内部使用</span>
               </div>
-              <h3>量化金融</h3>
-              <p>A 股场景已投入使用，目前仅在内部运行，不对公开放访问。</p>
-              <span class="track-link">暂不开放访问</span>
+              <h3>量化</h3>
+              <p>A 股方向的能力已在内部运转。现阶段没有单独的对外产品页。</p>
             </div>
-            <a class="track" href="#product" data-reveal>
-              <div class="track-top">
-                <span class="track-no">03</span>
-                <span class="tag">即将上线</span>
+            <a class="track" href="#product">
+              <div class="track-meta">
+                <span class="tag">准备中</span>
               </div>
-              <h3>AI 应用 · 刷刷</h3>
-              <p>让你的额度不再浪费。你所做的所有东西，99%的人都做过。</p>
-              <span class="track-link">将在 Flash Launch 上线</span>
+              <h3>应用 · 刷刷</h3>
+              <p>一款会经 Flash Launch 发布的应用。额度不该浪费，细节见产品区。</p>
+              <span class="track-link">先看 Flash Launch</span>
             </a>
           </div>
         </div>
@@ -122,57 +100,36 @@
 
       <section class="band" id="product">
         <div class="shell">
-          <div class="band-head" data-reveal>
-            <span class="eyebrow">产品</span>
-            <h2 class="title">平台与应用</h2>
-            <p class="team-lede">Flash Launch 已开放；刷刷即将经平台发布。</p>
+          <div class="band-lead" data-reveal>
+            <h2 class="title">产品</h2>
+            <p class="lede-sm">先开放平台，再在平台上接应用。不另开一条旁路。</p>
           </div>
 
-          <div class="product-duo">
-            <article class="product-card" data-reveal>
-              <div class="product-card-top">
-                <span class="tag tag-live">已开放</span>
-              </div>
-              <h3 class="product-title">Flash Launch</h3>
-              <p class="lede-sm">云计算业务线的对外入口。面向研发团队与开发者，提供部署、域名与运行环境能力。</p>
-              <ol class="ladder ladder-inline">
-                <li>
-                  <span>01</span>
-                  <div>
-                    <strong>构建</strong>
-                    <em>代码与静态产物</em>
-                  </div>
-                </li>
-                <li>
-                  <span>02</span>
-                  <div>
-                    <strong>发布</strong>
-                    <em>部署、域名、环境</em>
-                  </div>
-                </li>
-                <li>
-                  <span>03</span>
-                  <div>
-                    <strong>运行</strong>
-                    <em>上线访问与迭代</em>
-                  </div>
-                </li>
+          <div class="product-row" data-reveal>
+            <article class="product">
+              <span class="tag tag-live">对外可用</span>
+              <h3>Flash Launch</h3>
+              <p>
+                把代码或静态产物发布到可访问的线上环境。
+                部署、域名、环境变量、日志与回滚，尽量回到同一个控制台处理。
+              </p>
+              <ol class="steps">
+                <li><strong>构建</strong>代码与构建产物</li>
+                <li><strong>发布</strong>环境、域名与配置</li>
+                <li><strong>运行</strong>上线后的访问与修改</li>
               </ol>
               <div class="actions">
-                <a class="btn btn-light" href="https://simplify-net.com/zh-cn/products/flash-launch/">品牌介绍</a>
-                <a class="btn btn-ghost" href="https://flashlaunch.net/" target="_blank" rel="noopener">打开平台</a>
+                <a class="btn btn-light" href="https://flashlaunch.net/" target="_blank" rel="noopener">打开 Flash Launch</a>
+                <a class="btn btn-ghost" href="https://simplify-net.com/zh-cn/products/flash-launch/">了解产品</a>
               </div>
             </article>
-
-            <article class="product-card" data-reveal>
-              <div class="product-card-top">
-                <span class="tag">即将上线</span>
-              </div>
-              <h3 class="product-title">刷刷</h3>
-              <p class="lede-sm">让你的额度不再浪费。你所做的所有东西，99%的人都做过。</p>
-              <p class="product-note">尚未上线微信小程序，将通过 Flash Launch 发布。</p>
+            <article class="product">
+              <span class="tag">准备中</span>
+              <h3>刷刷</h3>
+              <p>让你的额度不再浪费。你现在做的许多事，其实大家已经做过。</p>
+              <p class="note">还没上线小程序。计划通过 Flash Launch 发布，而不是单独开一套入口。</p>
               <div class="actions">
-                <a class="btn btn-ghost" href="https://simplify-net.com/zh-cn/products/flash-launch/">经 Flash Launch 上线</a>
+                <a class="btn btn-ghost" href="https://simplify-net.com/zh-cn/products/flash-launch/">了解产品</a>
               </div>
             </article>
           </div>
@@ -181,73 +138,119 @@
 
       <section class="band band-team" id="team">
         <div class="shell">
-          <div class="band-head" data-reveal>
-            <span class="eyebrow">团队</span>
-            <h2 class="title">创始团队</h2>
-            <p class="team-lede">
-              覆盖战略、技术、产品、量化投资、商务、法务与运营。
-              <a class="team-source" href="https://simplify-net.com/zh-cn/leadership/">完整介绍</a>
+          <div class="band-lead" data-reveal>
+            <h2 class="title">团队</h2>
+            <p class="lede-sm">
+              下列职务与履历可在公开渠道核对。更全的介绍在
+              <a class="inline-link" href="https://simplify-net.com/zh-cn/leadership/">领导团队页</a>。
             </p>
           </div>
-
-          <div class="people">
-            <article class="person" data-reveal>
+          <div class="people" data-reveal>
+            <article class="person">
               <span class="person-role">创始人兼 CEO</span>
               <h3>陈奕玮 <em>Jimmy Chen</em></h3>
-              <p>连续创业者、量化基金经理，负责技术、量化、产品与战略。</p>
+              <p>计算机科学家，连续创业者，量化基金经理。负责技术、投研、产品与战略。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">联合创始人兼 CTO</span>
               <h3>唐宇 <em>Yu Tang</em></h3>
-              <p>连续创业者，前大疆研究员，负责技术架构。</p>
+              <p>连续创业者，曾任大疆研究员。现在负责 Simplify 的技术架构。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">联合创始人兼首席产品官</span>
               <h3>王鼎文 <em>Dingwen Wang</em></h3>
-              <p>港科大硕士，前百度产品经理与硬件创业者，负责产品与增长。</p>
+              <p>香港科技大学硕士；曾在百度做产品，并有硬件创业经历。负责产品与增长。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">美股多空股票基金经理</span>
               <h3>郭同顺 <em>Tongshun Guo</em></h3>
-              <p>公开市场研究、交易与投资组合管理。</p>
+              <p>公开市场研究、交易与组合管理。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">商务发展与商业合作</span>
               <h3>廖俊承 <em>Juncheng Liao</em></h3>
-              <p>业务发展、商务拓展与合作伙伴关系。</p>
+              <p>业务拓展、商务与伙伴合作。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">创始工程师</span>
               <h3>徐彼岸 <em>Xu Bian</em></h3>
-              <p>产品开发与工程交付，曾获顶级黑客松冠军。</p>
+              <p>工程交付与产品实现，擅长把方案做到可上线。</p>
             </article>
-            <article class="person" data-reveal>
+            <article class="person">
               <span class="person-role">法务与运营</span>
               <h3>郑宇琛 <em>Yuchen Zheng</em></h3>
-              <p>吉大双学位、港科大硕士，负责法务与运营。</p>
+              <p>吉林大学公共管理与法学双学位，香港科技大学硕士。负责法务与运营。</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-creds" id="background">
+        <div class="shell band-lead" data-reveal>
+          <h2 class="title">背景</h2>
+          <p class="lede-sm">公开履历中的院校与机构。标识只作展示。</p>
+        </div>
+        <div class="marquee" aria-label="背景机构滚动">
+          <div class="marquee-fade marquee-fade-l" aria-hidden="true"></div>
+          <div class="marquee-fade marquee-fade-r" aria-hidden="true"></div>
+          <div class="marquee-track">
+            <ul class="marquee-list">
+              <li class="cred-slot">
+                <img class="cred-logo cred-wide" src="assets/logos/hkust-word.png" alt="香港科技大学" width="220" height="70" decoding="async">
+              </li>
+              <li class="cred-slot">
+                <img class="cred-logo cred-seal" src="assets/logos/jlu.png" alt="吉林大学" width="72" height="72" decoding="async">
+              </li>
+              <li class="cred-slot">
+                <img class="cred-logo cred-dji" src="assets/logos/dji-white.svg" alt="DJI 大疆" width="96" height="56" decoding="async">
+              </li>
+              <li class="cred-slot">
+                <img class="cred-logo cred-baidu" src="assets/logos/baidu.svg" alt="百度" width="150" height="52" decoding="async">
+              </li>
+              <li class="cred-slot" aria-hidden="true">
+                <img class="cred-logo cred-wide" src="assets/logos/hkust-word.png" alt="" width="220" height="70" decoding="async">
+              </li>
+              <li class="cred-slot" aria-hidden="true">
+                <img class="cred-logo cred-seal" src="assets/logos/jlu.png" alt="" width="72" height="72" decoding="async">
+              </li>
+              <li class="cred-slot" aria-hidden="true">
+                <img class="cred-logo cred-dji" src="assets/logos/dji-white.svg" alt="" width="96" height="56" decoding="async">
+              </li>
+              <li class="cred-slot" aria-hidden="true">
+                <img class="cred-logo cred-baidu" src="assets/logos/baidu.svg" alt="" width="150" height="52" decoding="async">
+              </li>
+            </ul>
+            <ul class="marquee-list" aria-hidden="true">
+              <li class="cred-slot"><img class="cred-logo cred-wide" src="assets/logos/hkust-word.png" alt="" width="220" height="70" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-seal" src="assets/logos/jlu.png" alt="" width="72" height="72" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-dji" src="assets/logos/dji-white.svg" alt="" width="96" height="56" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-baidu" src="assets/logos/baidu.svg" alt="" width="150" height="52" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-wide" src="assets/logos/hkust-word.png" alt="" width="220" height="70" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-seal" src="assets/logos/jlu.png" alt="" width="72" height="72" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-dji" src="assets/logos/dji-white.svg" alt="" width="96" height="56" decoding="async"></li>
+              <li class="cred-slot"><img class="cred-logo cred-baidu" src="assets/logos/baidu.svg" alt="" width="150" height="52" decoding="async"></li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="band" id="contact">
         <div class="shell">
-          <div class="band-head" data-reveal>
-            <span class="eyebrow">联系</span>
-            <h2 class="title">商务与合作</h2>
-            <p class="team-lede">深圳简界智元科技有限公司 · 总部深圳。商务、合作与相关沟通可通过下方邮箱。</p>
+          <div class="band-lead" data-reveal>
+            <h2 class="title">联系</h2>
+            <p class="lede-sm">公司在深圳。有合作或招聘以外的问题，写清身份与来意发邮件即可。</p>
           </div>
-          <div class="contact-grid contact-grid-2">
-            <article class="contact" data-reveal>
-              <h3>商务联络</h3>
-              <p>请注明机构、身份与来意（业务合作或相关沟通）。</p>
-              <a class="mail" href="mailto:milessimplify@gmail.com?subject=商务联络-Simplify">milessimplify@gmail.com</a>
+          <div class="contact-row" data-reveal>
+            <article class="contact">
+              <h3>商务合作</h3>
+              <p>业务合作、对接或其它商务沟通，邮件说明即可。</p>
+              <a class="mail" href="mailto:milessimplify@gmail.com?subject=商务合作-Simplify">milessimplify@gmail.com</a>
             </article>
-            <article class="contact" data-reveal>
-              <h3>人才招聘</h3>
-              <p>职位见招聘页，也可邮件投递。</p>
+            <article class="contact">
+              <h3>招聘</h3>
+              <p>先看在招岗位；也可以直接投递简历。</p>
               <div class="actions">
-                <a class="btn btn-light btn-sm" href="https://simplify-net.com/zh-cn/careers/">招聘页面</a>
+                <a class="btn btn-light btn-sm" href="https://simplify-net.com/zh-cn/careers/">查看职位</a>
                 <a class="btn btn-ghost btn-sm" href="mailto:career@simplify-net.com?subject=求职申请">投递邮件</a>
               </div>
             </article>
@@ -260,7 +263,7 @@
       <div class="shell foot-grid">
         <div class="foot-brand">
           <img src="assets/simplify-logo-white.png" alt="SIMPLIFY" width="132" height="28">
-          <p>用AI简化我们的生活</p>
+          <p>让事情变简单</p>
           <p class="foot-entity">深圳简界智元科技有限公司 · 深圳</p>
           <div class="lang">
             <a href="https://simplify-net.com/" lang="en">English</a>
@@ -268,11 +271,12 @@
           </div>
         </div>
         <div class="foot-col">
-          <h2>网站导航</h2>
+          <h2>导航</h2>
           <div class="foot-nav">
             <a href="#biz">业务</a>
             <a href="#product">产品</a>
             <a href="#team">团队</a>
+            <a href="#background">背景</a>
             <a href="#contact">联系</a>
             <a href="https://simplify-net.com/zh-cn/careers/">招聘</a>
             <a href="https://simplify-net.com/zh-cn/about/">关于</a>
@@ -280,12 +284,12 @@
         </div>
         <div class="foot-col">
           <h2>产品</h2>
-          <a href="https://simplify-net.com/zh-cn/products/flash-launch/">Flash Launch</a>
-          <a href="https://flashlaunch.net/" target="_blank" rel="noopener">FlashLaunch.net</a>
+          <a href="https://flashlaunch.net/" target="_blank" rel="noopener">打开 Flash Launch</a>
+          <a href="https://simplify-net.com/zh-cn/products/flash-launch/">了解产品</a>
         </div>
         <div class="foot-col">
           <h2>联系</h2>
-          <a href="mailto:milessimplify@gmail.com">milessimplify@gmail.com</a>
+          <a href="mailto:milessimplify@gmail.com">商务合作</a>
         </div>
         <div class="foot-col">
           <h2>法律</h2>
@@ -297,6 +301,6 @@
       <div class="shell foot-bar">© 2026 深圳简界智元科技有限公司 · Simplify</div>
     </footer>
 
-    <script src="js/site.js?v=video-live"></script>
+    <script src="js/site.js?v=bg-ui"></script>
   </body>
 </html>
