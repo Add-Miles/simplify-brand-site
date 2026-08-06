@@ -472,7 +472,13 @@ body > .top,
 }
 
 .hero-copy {
-  max-width: 38rem;
+  max-width: 42rem;
+}
+
+.hero-copy .lede {
+  max-width: 28em;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
 }
 
 .hero-copy .actions {
@@ -557,6 +563,51 @@ body > .top,
 
 .band-biz {
   background: linear-gradient(180deg, rgba(10, 18, 48, 0.25), transparent 60%);
+}
+
+/* Investor-facing progress strip — facts only */
+.band-progress {
+  padding: 0 0 clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 0;
+}
+
+.progress-list {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line-2);
+}
+
+.progress-list li {
+  padding: 1.15rem 1.25rem 0.25rem 0;
+  margin-right: 1.25rem;
+  border-right: 1px solid var(--line);
+}
+
+.progress-list li:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.progress-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-3);
+}
+
+.progress-list strong {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--fg);
 }
 
 /* Team — compact roster grid
@@ -720,10 +771,10 @@ a.team-source:hover {
 }
 
 .track h3 {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .track p {
@@ -745,16 +796,51 @@ a.team-source:hover {
   color: #fff;
 }
 
-/* Product */
-.product-layout {
+/* Product — dual cards */
+.product-duo {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: end;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line-2);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 2rem 1.75rem 1.85rem 0;
+  margin-right: 1.75rem;
+  border-right: 1px solid var(--line);
+  min-height: 100%;
+}
+
+.product-card:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.product-card-top {
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem;
 }
 
 .product-title {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.product-note {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--fg-3);
+}
+
+.product-card .actions {
+  margin-top: auto;
+  padding-top: 0.5rem;
 }
 
 .ladder {
@@ -764,20 +850,24 @@ a.team-source:hover {
   border-left: 1px solid var(--line-2);
 }
 
+.ladder-inline {
+  margin-top: 0.35rem;
+}
+
 .ladder li {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
   gap: 0.85rem;
-  padding: 1.15rem 0 1.15rem 1.35rem;
+  padding: 0.85rem 0 0.85rem 1.15rem;
   border-bottom: 1px solid var(--line);
 }
 
 .ladder li:first-child {
-  padding-top: 0.2rem;
+  padding-top: 0.15rem;
 }
 .ladder li:last-child {
   border-bottom: 0;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.1rem;
 }
 
 .ladder span {
@@ -790,16 +880,24 @@ a.team-source:hover {
 
 .ladder strong {
   display: block;
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .ladder em {
   font-style: normal;
   color: var(--fg-3);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+}
+
+/* legacy single product (unused shells) */
+.product-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
 }
 
 /* Contact */
@@ -909,7 +1007,13 @@ a.team-source:hover {
 
 .foot-brand p {
   color: var(--fg-3);
+  margin-bottom: 0.45rem;
+}
+
+.foot-brand .foot-entity {
   margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--fg-2);
 }
 
 .lang {
@@ -974,10 +1078,24 @@ a.team-source:hover {
   .hero-layout,
   .about-layout,
   .product-layout,
+  .product-duo,
   .tracks,
+  .progress-list,
   .contact-grid,
   .foot-grid {
     grid-template-columns: 1fr;
+  }
+
+  .progress-list li,
+  .progress-list li:last-child {
+    margin: 0;
+    padding: 1rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .progress-list li:last-child {
+    border-bottom: 0;
   }
 
   .people {
@@ -1001,6 +1119,22 @@ a.team-source:hover {
 
   .hero-layout {
     min-height: auto;
+  }
+
+  .product-duo {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card,
+  .product-card:last-child {
+    margin: 0;
+    padding: 1.6rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .product-card:last-child {
+    border-bottom: 0;
   }
 
   .track,
