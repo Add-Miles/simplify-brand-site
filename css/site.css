@@ -432,7 +432,7 @@ body > .top,
 }
 
 .display {
-  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  font-size: clamp(2.6rem, 6.4vw, 4.85rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.05;
@@ -459,8 +459,7 @@ body > .top,
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding: calc(var(--nav) + 2.5rem) 0 5.5rem;
-  padding-top: calc(var(--nav) + 2rem);
+  padding: calc(var(--nav) + 2rem) 0 4rem;
 }
 
 .hero-layout {
@@ -482,7 +481,7 @@ body > .top,
 }
 
 .hero-copy .actions {
-  margin-top: 2.1rem;
+  margin-top: 1.75rem;
 }
 
 .hero-orbit {
@@ -563,51 +562,6 @@ body > .top,
 
 .band-biz {
   background: linear-gradient(180deg, rgba(10, 18, 48, 0.25), transparent 60%);
-}
-
-/* Investor-facing progress strip — facts only */
-.band-progress {
-  padding: 0 0 clamp(2.5rem, 5vw, 3.5rem);
-  border-top: 0;
-}
-
-.progress-list {
-  list-style: none;
-  margin: 0;
-  padding: 1.25rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--line-2);
-}
-
-.progress-list li {
-  padding: 1.15rem 1.25rem 0.25rem 0;
-  margin-right: 1.25rem;
-  border-right: 1px solid var(--line);
-}
-
-.progress-list li:last-child {
-  border-right: 0;
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.progress-label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: var(--fg-3);
-}
-
-.progress-list strong {
-  display: block;
-  font-size: 1.02rem;
-  font-weight: 550;
-  letter-spacing: -0.02em;
-  line-height: 1.4;
-  color: var(--fg);
 }
 
 /* Team — compact roster grid
@@ -1080,23 +1034,12 @@ a.team-source:hover {
   .product-layout,
   .product-duo,
   .tracks,
-  .progress-list,
   .contact-grid,
   .foot-grid {
     grid-template-columns: 1fr;
   }
 
-  .progress-list li,
-  .progress-list li:last-child {
-    margin: 0;
-    padding: 1rem 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .progress-list li:last-child {
-    border-bottom: 0;
-  }
+  /* tablet: status stays 3-up until phone */
 
   .people {
     grid-template-columns: repeat(2, minmax(0, 1fr));
