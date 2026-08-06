@@ -13,8 +13,8 @@
     <meta property="og:description" content="为构建者提供能发、能跑、能被信任的基础设施与系统。">
     <meta property="og:locale" content="zh_CN">
     <link rel="icon" href="assets/simplify-favicon-v2.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/site.css?v=sparkx-1to1">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/site.css?v=sparkx-true">
+    <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
   </head>
   <body>
     <!-- SparkX-inspired：背景机构滚动 + 团队窗口 · DESIGN company-v2 -->
@@ -155,267 +155,300 @@
         </div>
       </section>
 
-      <!-- 1:1 from SparkX: title → Swiper card rows → multi-row logo marquee -->
-      <section class="band band-sparkx" id="team">
-        <div class="shell">
-          <div class="band-intro sx-intro" data-reveal>
-            <p class="section-label">团队</p>
-            <h2 class="title title-xl">核心成员，可直接翻阅</h2>
-            <p class="intro">滑动或点击圆点切换。完整履历见 <a class="inline-link" href="https://simplify-net.com/zh-cn/leadership/">领导团队页</a>。</p>
-          </div>
 
-          <div class="sx-swiper-wrap" data-reveal>
-            <div class="swiper team_swiper" id="team-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">Simplify · 创始人</span>
-                      <p class="sx-quote">计算机科学家，连续创业者与量化基金经理。负责公司论点、技术、投研、产品与战略执行。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">JC</span>
-                      <div>
-                        <h3 class="sx-name">陈奕玮</h3>
-                        <p class="sx-role">创始人兼 CEO · Jimmy Chen</p>
+      <!-- SparkX effect 1:1 light panel: center-lift Swiper cards + dense logo marquee -->
+      <section class="sx-light-section" id="team">
+        <div class="sx-light-inner">
+          <div class="sx-heading-wrap">
+            <h2 class="sx-heading">核心团队的共同选择</h2>
+          </div>
+          <div class="div-block-34">
+            <div class="swiper team_swiper">
+              <div class="swiper-wrapper team_swiper_w">
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14 sx-logo-on-light" src="assets/simplify-logo-white.png" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">计算机科学家，连续创业者与量化基金经理。负责公司论点、技术、投研、产品与战略执行。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">JC</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">陈奕玮</h3>
+                        <div class="text-block-7">创始人兼 CEO · Jimmy Chen</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">前大疆 · 技术</span>
-                      <p class="sx-quote">连续创业者；曾任大疆研究员。负责 Simplify 技术架构与工程体系。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">YT</span>
-                      <div>
-                        <h3 class="sx-name">唐宇</h3>
-                        <p class="sx-role">联合创始人兼 CTO · Yu Tang</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14" src="assets/logos/dji-dark.svg" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">连续创业者；曾任大疆研究员。负责 Simplify 技术架构与工程体系。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">YT</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">唐宇</h3>
+                        <div class="text-block-7">联合创始人兼 CTO · Yu Tang</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">港科大 · 前百度</span>
-                      <p class="sx-quote">香港科技大学硕士；前百度产品经理，有硬件创业经历。负责产品与增长。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">DW</span>
-                      <div>
-                        <h3 class="sx-name">王鼎文</h3>
-                        <p class="sx-role">联合创始人兼 CPO · Dingwen Wang</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14" src="assets/logos/baidu.svg" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">香港科技大学硕士；前百度产品经理，有硬件创业经历。负责产品与增长。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">DW</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">王鼎文</h3>
+                        <div class="text-block-7">联合创始人兼 CPO · Dingwen Wang</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">公开市场 · 投研</span>
-                      <p class="sx-quote">公开市场研究、交易与投资组合管理。在 Simplify 侧负责美股多空与组合相关决策。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">TG</span>
-                      <div>
-                        <h3 class="sx-name">郭同顺</h3>
-                        <p class="sx-role">美股多空股票基金经理 · Tongshun Guo</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14 logo-darken" src="assets/logos/hkust-word.png" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">公开市场研究、交易与投资组合管理。在 Simplify 侧负责美股多空与组合相关决策。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">TG</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">郭同顺</h3>
+                        <div class="text-block-7">美股多空股票基金经理 · Tongshun Guo</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">商务与合作</span>
-                      <p class="sx-quote">业务拓展、商务与伙伴关系，对接外部资源与机构沟通。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">JL</span>
-                      <div>
-                        <h3 class="sx-name">廖俊承</h3>
-                        <p class="sx-role">商务发展与商业合作 · Juncheng Liao</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14 sx-logo-on-light" src="assets/simplify-logo-white.png" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">业务拓展、商务与伙伴关系，对接外部资源与机构沟通。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">JL</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">廖俊承</h3>
+                        <div class="text-block-7">商务发展与商业合作 · Juncheng Liao</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">工程交付</span>
-                      <p class="sx-quote">工程交付与产品实现，把方案推进到可运行的状态。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">XB</span>
-                      <div>
-                        <h3 class="sx-name">徐彼岸</h3>
-                        <p class="sx-role">创始工程师 · Xu Bian</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14" src="assets/logos/hkust-symbol.svg" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">工程交付与产品实现，把方案推进到可运行的状态。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">XB</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">徐彼岸</h3>
+                        <div class="text-block-7">创始工程师 · Xu Bian</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <article class="team_swiper_item">
-                    <div class="sx-card-top">
-                      <span class="sx-org">吉大 · 港科大</span>
-                      <p class="sx-quote">吉林大学公共管理与法学双学位；香港科技大学硕士。负责法务与运营。</p>
-                      <span class="sx-marks" aria-hidden="true">”</span>
-                    </div>
-                    <div class="sx-card-foot">
-                      <span class="sx-avatar">YZ</span>
-                      <div>
-                        <h3 class="sx-name">郑宇琛</h3>
-                        <p class="sx-role">法务与运营 · Yuchen Zheng</p>
+                <div class="swiper-slide team_swiper_slide">
+                  <div class="team_swiper_item">
+                    <div class="div-block-37">
+                      <img class="image-14" src="assets/logos/jlu.png" alt="" loading="lazy" width="120" height="40">
+                      <div class="div-block-38">
+                        <div class="div-block-35">
+                          <p class="paragraph-2">吉林大学公共管理与法学双学位；香港科技大学硕士。负责法务与运营。</p>
+                        </div>
+                        <div class="div-block-36">
+                          <img class="image-15" src="assets/quote-sparkx.svg" alt="" width="40" height="32" loading="lazy">
+                        </div>
                       </div>
                     </div>
-                  </article>
+                    <div class="div-block-39">
+                      <span class="image-16" aria-hidden="true">YZ</span>
+                      <div class="div-block-40">
+                        <h3 class="heading-4">郑宇琛</h3>
+                        <div class="text-block-7">法务与运营 · Yuchen Zheng</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="swiper-pagination team_s_p" aria-label="团队分页"></div>
+              <div class="swiper-pagination team_s_p"></div>
             </div>
+            <a class="sx-case-btn" href="https://simplify-net.com/zh-cn/leadership/">了解领导团队</a>
           </div>
-        </div>
-      </section>
 
-      <section class="band band-bg" id="background">
-        <div class="shell" data-reveal>
-          <p class="section-label">背景</p>
-          <h2 class="title title-xl">团队走过的院校与科技组织</h2>
-          <p class="intro bg-claim-sub">百度、大疆、港科大、吉林大学——履历上的节点，不是客户 logo 墙。</p>
-        </div>
-
-        <!-- structure mirrored from sparkx.cn logos-marquee -->
-        <div class="logos-marquee" aria-label="机构标识滚动">
-          <div class="home-logo-wrapper">
+          <div class="div-block-41" id="background">
+            <p class="sx-bg-label">背景机构</p>
+            <div class="logos-marquee" aria-label="机构标识滚动">
+              <div class="home-logo-wrapper">
             <div class="clients-grid logo-animate">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="Baidu" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="DJI" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="HKUST" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="JLU" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="HKUST" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager" aria-hidden="true">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager" aria-hidden="true">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" aria-hidden="true">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" aria-hidden="true">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager" aria-hidden="true">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
             </div>
             <div class="clients-grid logo-animate" aria-hidden="true">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
             </div>
             <div class="clients-grid logo-animate" aria-hidden="true">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
             </div>
-            <div class="home-logo-left-gradient" aria-hidden="true"></div>
-            <div class="home-logo-left-gradient right" aria-hidden="true"></div>
-          </div>
-
-          <div class="home-logo-wrapper bottom">
+                <div class="home-logo-left-gradient" aria-hidden="true"></div>
+                <div class="home-logo-left-gradient right" aria-hidden="true"></div>
+              </div>
+              <div class="home-logo-wrapper bottom">
             <div class="clients-grid logo-animate-alt">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
             </div>
             <div class="clients-grid logo-animate-alt" aria-hidden="true">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
             </div>
             <div class="clients-grid logo-animate-alt" aria-hidden="true">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
             </div>
-            <div class="home-logo-left-gradient" aria-hidden="true"></div>
-            <div class="home-logo-left-gradient right" aria-hidden="true"></div>
-          </div>
-
-          <div class="home-logo-wrapper bottom">
-            <div class="clients-grid logo-animate" style="animation-duration: 28s">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
+                <div class="home-logo-left-gradient" aria-hidden="true"></div>
+                <div class="home-logo-left-gradient right" aria-hidden="true"></div>
+              </div>
+              <div class="home-logo-wrapper bottom">
+            <div class="clients-grid logo-animate logo-fast">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
             </div>
-            <div class="clients-grid logo-animate" style="animation-duration: 28s" aria-hidden="true">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
+            <div class="clients-grid logo-animate logo-fast" aria-hidden="true">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
             </div>
-            <div class="clients-grid logo-animate" style="animation-duration: 28s" aria-hidden="true">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/hkust-word.png" alt="" loading="eager">
-              <img class="client-logo logo-tint" src="assets/logos/baidu.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/dji-white.svg" alt="" loading="eager">
-              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager">
+            <div class="clients-grid logo-animate logo-fast" aria-hidden="true">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/jlu.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/hkust-symbol.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo logo-darken" src="assets/logos/hkust-word.png" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/baidu.svg" alt="" loading="eager" width="140" height="70">
+              <img class="client-logo" src="assets/logos/dji-dark.svg" alt="" loading="eager" width="140" height="70">
             </div>
-            <div class="home-logo-left-gradient" aria-hidden="true"></div>
-            <div class="home-logo-left-gradient right" aria-hidden="true"></div>
+                <div class="home-logo-left-gradient" aria-hidden="true"></div>
+                <div class="home-logo-left-gradient right" aria-hidden="true"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -489,7 +522,7 @@
       <div class="shell foot-bar">© 2026 深圳简界智元科技有限公司 · Simplify</div>
     </footer>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/site.js?v=sparkx-1to1"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="js/site.js?v=sparkx-true"></script>
   </body>
 </html>

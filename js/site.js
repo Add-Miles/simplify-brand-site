@@ -118,18 +118,20 @@
   /* SparkX team Swiper — same config as sparkx.cn */
   const bootSwiper = () => {
     if (typeof Swiper === "undefined") {
-      console.warn("Swiper CDN not loaded");
-      return;
+      console.warn("Swiper not loaded");
+      return null;
     }
-    if (!document.querySelector(".swiper.team_swiper")) return;
-    // eslint-disable-next-line no-new
-    new Swiper(".swiper.team_swiper", {
+    const el = document.querySelector(".swiper.team_swiper");
+    if (!el) return null;
+    return new Swiper(".swiper.team_swiper", {
       loop: true,
       centeredSlides: true,
       speed: 800,
+      watchOverflow: true,
       autoplay: {
         delay: 2000,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       },
       breakpoints: {
         320: {
@@ -146,15 +148,20 @@
         },
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".team_s_p",
         clickable: true,
       },
     });
   };
 
+  const tryBoot = (attempt = 0) => {
+    if (bootSwiper() || attempt > 20) return;
+    setTimeout(() => tryBoot(attempt + 1), 100);
+  };
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", bootSwiper);
+    document.addEventListener("DOMContentLoaded", () => tryBoot());
   } else {
-    bootSwiper();
+    tryBoot();
   }
 })();

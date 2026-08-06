@@ -519,188 +519,231 @@ body > .top,
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SparkX 1:1 — team Swiper cards + logo marquee
-   Source: https://www.sparkx.cn/ (Webflow + Swiper 8)
+   SparkX effect — light panel 1:1 (www.sparkx.cn)
    ═══════════════════════════════════════════════════════════ */
 
-.band-sparkx {
+.sx-light-section {
+  background: #ffffff;
+  color: #111;
   overflow: visible;
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(4rem, 8vw, 6.5rem) 0 clamp(3.5rem, 7vw, 5.5rem);
 }
 
-.band-bg {
-  overflow: hidden;
-  padding-top: clamp(2.5rem, 5vw, 3.5rem);
-  padding-bottom: clamp(3rem, 7vw, 5rem);
-}
-
-.bg-claim-sub {
-  max-width: 40em;
-  margin-bottom: 0;
-}
-
-.sx-intro {
-  text-align: center;
+.sx-light-inner {
+  width: min(calc(100% - 2.5rem), 1120px);
   margin-inline: auto;
+}
+
+.sx-heading-wrap {
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.sx-intro .intro {
-  margin-inline: auto;
+.sx-heading {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: #111;
 }
 
-.sx-swiper-wrap {
+.div-block-34 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  margin-top: 2.5rem;
-  padding: 70px 0 1.5rem;
-  overflow: visible;
+  margin-top: 60px;
+  gap: 24px;
 }
 
-/* Swiper shell — matches SparkX .team_swiper */
 .team_swiper {
   width: 100%;
   overflow: visible;
-  padding-bottom: 2.75rem;
+  padding: 70px 0 36px;
 }
 
-.team_swiper .swiper-wrapper {
+.team_swiper_w {
+  display: flex;
   align-items: stretch;
+  width: 100%;
+  height: 100%;
 }
 
 .team_swiper .swiper-slide {
   height: auto;
-  opacity: 0.55;
-  transition: opacity 0.4s ease;
 }
 
-.team_swiper .swiper-slide-active {
-  opacity: 1;
-}
-
-.team_swiper .swiper-slide-active .team_swiper_item {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  transform: translateY(-60px);
-}
-
-/* Card — SparkX .team_swiper_item on dark */
 .team_swiper_item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: 40px;
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 500px;
   padding: 30px;
   border-radius: 20px;
-  background: #121214;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #f5f5f5;
   box-sizing: border-box;
   transition:
     transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    box-shadow 0.35s ease;
 }
 
-.sx-card-top {
+.team_swiper .swiper-slide-active .team_swiper_item {
+  transform: translateY(-60px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
+}
+
+.div-block-37 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 24px;
   width: 100%;
   flex: 1;
 }
 
-.sx-org {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  padding: 0.45rem 0.7rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+.image-14 {
+  width: 120px;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  object-position: left center;
 }
 
-.sx-quote {
-  margin: 0;
-  color: #aab1bc;
-  font-size: 0.95rem;
-  line-height: 1.8;
+.image-14.sx-logo-on-light,
+.image-14.logo-darken {
+  filter: brightness(0);
+  opacity: 0.88;
+}
+
+.div-block-38 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   flex: 1;
 }
 
-.sx-marks {
-  align-self: flex-end;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 3.5rem;
-  line-height: 0.6;
-  color: rgba(255, 255, 255, 0.18);
-  margin-top: auto;
+.div-block-35 {
+  flex: 1;
 }
 
-.sx-card-foot {
+.paragraph-2 {
+  margin: 0;
+  color: #787f84;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.div-block-36 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.image-15 {
+  width: 40px;
+  height: auto;
+}
+
+.div-block-39 {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 15px;
   width: 100%;
 }
 
-.sx-avatar {
+.image-16 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #0a0a0a;
-  background: #e8ecf2;
   flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  background: linear-gradient(145deg, #3f007b, #1a0038);
 }
 
-.sx-name {
+.div-block-40 {
+  min-width: 0;
+}
+
+.heading-4 {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
+  color: #3f007b;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.4;
 }
 
-.sx-role {
-  margin: 0.15rem 0 0;
-  font-size: 0.875rem;
-  color: var(--text-3);
-  line-height: 1.35;
+.text-block-7 {
+  margin-top: 2px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
 }
 
 .team_s_p.swiper-pagination {
-  position: relative;
+  position: relative !important;
   bottom: 0 !important;
-  margin-top: 0.5rem;
+  margin-top: 4px;
 }
 
 .team_s_p .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.28);
+  background: #c9cdd2;
   opacity: 1;
 }
 
 .team_s_p .swiper-pagination-bullet-active {
-  background: #f2f3f5;
+  background: #3f007b;
   width: 22px;
   border-radius: 999px;
 }
 
-/* Logo marquee — exact SparkX CSS pattern */
+.sx-case-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.75rem;
+  border-radius: 999px;
+  background: #111;
+  color: #fff !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.sx-case-btn:hover {
+  background: #3f007b;
+}
+
+.div-block-41 {
+  width: 100%;
+  margin-top: 3.5rem;
+}
+
+.sx-bg-label {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a9199;
+}
+
 .logos-marquee {
   width: 100%;
-  margin-top: 2.25rem;
 }
 
 .home-logo-wrapper {
@@ -714,10 +757,9 @@ body > .top,
 }
 
 .home-logo-wrapper.bottom {
-  margin-top: -0.5rem;
+  margin-top: -2rem;
 }
 
-/* each strip is a flex row of logos; animation moves entire strip -100% */
 .clients-grid {
   display: flex;
   flex: none;
@@ -732,8 +774,8 @@ body > .top,
   opacity: 0.8;
   object-fit: contain;
   width: 140px;
-  min-height: 5.5rem;
-  max-height: 5.5rem;
+  min-height: 7rem;
+  max-height: 7rem;
   transition: opacity 0.4s;
   flex: none;
 }
@@ -742,16 +784,11 @@ body > .top,
   opacity: 1;
 }
 
-.client-logo.logo-tint {
-  filter: brightness(0) invert(1);
-  opacity: 0.72;
+.client-logo.logo-darken {
+  filter: brightness(0);
+  opacity: 0.75;
 }
 
-.client-logo.logo-tint:hover {
-  opacity: 0.95;
-}
-
-/* SparkX keyframes — do not disable under reduced-motion for brand marquee */
 @keyframes slide {
   0% {
     transform: translateX(calc(0% + 50px));
@@ -771,12 +808,15 @@ body > .top,
 }
 
 .logo-animate {
-  animation: slide 35s infinite linear;
+  animation: slide 35s infinite linear !important;
 }
 
 .logo-animate-alt {
-  animation: slidealt 35s infinite linear;
-  animation-direction: reverse;
+  animation: slidealt 35s infinite linear reverse !important;
+}
+
+.logo-fast {
+  animation-duration: 28s !important;
 }
 
 .home-logo-left-gradient {
@@ -785,12 +825,34 @@ body > .top,
   width: 10%;
   z-index: 2;
   pointer-events: none;
-  background-image: linear-gradient(90deg, #000, #0000);
+  background-image: linear-gradient(90deg, #fff, #fff0);
 }
 
 .home-logo-left-gradient.right {
   inset: 0 0 0 auto;
-  background-image: linear-gradient(270deg, #000, #0000);
+  background-image: linear-gradient(270deg, #fff, #fff0);
+}
+
+@media (max-width: 768px) {
+  .team_swiper {
+    padding-top: 40px;
+  }
+  .team_swiper_item {
+    min-height: 420px;
+    padding: 22px;
+    gap: 28px;
+  }
+  .team_swiper .swiper-slide-active .team_swiper_item {
+    transform: translateY(-28px);
+  }
+  .client-logo {
+    width: 110px;
+    min-height: 5rem;
+    max-height: 5rem;
+  }
+  .home-logo-wrapper.bottom {
+    margin-top: -1rem;
+  }
 }
 
 /* Contact */
