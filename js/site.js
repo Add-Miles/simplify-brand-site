@@ -80,7 +80,7 @@
       },
       { rootMargin: "-40% 0px -45% 0px", threshold: [0.15, 0.4] }
     );
-    ["biz", "product", "team", "background", "contact"].forEach((id) => {
+    ["why", "work", "belief", "team", "background", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
@@ -110,9 +110,51 @@
       { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
     );
     document.querySelectorAll("[data-reveal]").forEach((el) => rev.observe(el));
-    // Never leave content stuck invisible if observer misses
     setTimeout(revealAll, 2200);
   } else {
     revealAll();
+  }
+
+  /* SparkX team Swiper — same config as sparkx.cn */
+  const bootSwiper = () => {
+    if (typeof Swiper === "undefined") {
+      console.warn("Swiper CDN not loaded");
+      return;
+    }
+    if (!document.querySelector(".swiper.team_swiper")) return;
+    // eslint-disable-next-line no-new
+    new Swiper(".swiper.team_swiper", {
+      loop: true,
+      centeredSlides: true,
+      speed: 800,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootSwiper);
+  } else {
+    bootSwiper();
   }
 })();
