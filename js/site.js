@@ -115,28 +115,32 @@
     revealAll();
   }
 
-  /* SparkX team Swiper — same config as sparkx.cn */
+  /* Core team carousel — same on CN and EN pages */
   const bootSwiper = () => {
     if (typeof Swiper === "undefined") {
       console.warn("Swiper not loaded");
       return null;
     }
     const el = document.querySelector(".swiper.team_swiper");
-    if (!el) return null;
-    return new Swiper(".swiper.team_swiper", {
+    if (!el || el.swiper) return el && el.swiper ? el.swiper : null;
+
+    const swiper = new Swiper(el, {
       loop: true,
+      loopAdditionalSlides: 3,
       centeredSlides: true,
       speed: 800,
       watchOverflow: true,
+      grabCursor: true,
       autoplay: {
-        delay: 2000,
+        delay: 2200,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
+        waitForTransition: true,
       },
       breakpoints: {
         320: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 12,
         },
         768: {
           slidesPerView: 2,
@@ -148,15 +152,24 @@
         },
       },
       pagination: {
-        el: ".team_s_p",
+        el: el.querySelector(".team_s_p") || ".team_s_p",
         clickable: true,
       },
     });
+
+    /* Keep rolling after tab / visibility changes */
+    document.addEventListener("visibilitychange", () => {
+      if (!swiper.autoplay) return;
+      if (document.hidden) swiper.autoplay.stop();
+      else swiper.autoplay.start();
+    });
+
+    return swiper;
   };
 
   const tryBoot = (attempt = 0) => {
-    if (bootSwiper() || attempt > 20) return;
-    setTimeout(() => tryBoot(attempt + 1), 100);
+    if (bootSwiper() || attempt > 40) return;
+    setTimeout(() => tryBoot(attempt + 1), 80);
   };
 
   if (document.readyState === "loading") {
