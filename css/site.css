@@ -333,10 +333,6 @@ body > .top,
     radial-gradient(ellipse 80% 55% at 50% 20%, rgba(120, 140, 170, 0.14), transparent 60%);
 }
 
-.brand-line {
-  display: none;
-}
-
 .hero-inner {
   position: relative;
   z-index: 1;
@@ -347,13 +343,6 @@ body > .top,
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.brand-line {
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
-  color: var(--ink-3);
-  margin-bottom: 1.75rem;
 }
 
 .display {
