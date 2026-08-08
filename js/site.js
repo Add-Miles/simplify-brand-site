@@ -80,7 +80,7 @@
       },
       { rootMargin: "-40% 0px -45% 0px", threshold: [0.15, 0.4] }
     );
-    ["work", "team", "background", "contact"].forEach((id) => {
+    ["work", "products", "team", "background", "contact"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
