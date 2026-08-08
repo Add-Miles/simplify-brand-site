@@ -374,11 +374,17 @@ body > .top,
 }
 
 .thesis-belief {
-  font-size: clamp(1.05rem, 2.1vw, 1.4rem);
-  line-height: 1.55;
+  font-size: clamp(1.2rem, 2.35vw, 1.55rem);
+  line-height: 1.45;
   font-weight: 500;
-  color: var(--ink-2);
-  max-width: 34rem;
+  color: rgba(244, 241, 234, 0.88);
+  max-width: 28rem;
+}
+
+@media (min-width: 900px) {
+  .thesis-belief {
+    white-space: nowrap;
+  }
 }
 
 .thesis-close {
