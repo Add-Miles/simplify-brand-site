@@ -906,13 +906,15 @@ body > .top,
   background: #2a313c;
 }
 
-.div-block-41 {
+.bg-orgs {
   width: 100%;
-  margin-top: 3.5rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .sx-bg-label {
-  margin: 0 0 1rem;
+  margin: 0 0 1.75rem;
   text-align: center;
   font-size: 0.78rem;
   letter-spacing: 0.16em;
@@ -920,95 +922,43 @@ body > .top,
   color: #8a9199;
 }
 
-.logos-marquee {
-  width: 100%;
-}
-
-.home-logo-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 3rem;
-  margin-top: 1rem;
-  overflow: hidden;
-}
-
-.home-logo-wrapper.bottom {
-  margin-top: -2rem;
-}
-
-.clients-grid {
-  display: flex;
-  flex: none;
-  align-items: center;
-  gap: 3rem;
-  width: auto;
+.bg-logo-grid {
+  list-style: none;
   margin: 0;
-  will-change: transform;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  align-items: center;
+  justify-items: center;
 }
 
-.client-logo {
-  opacity: 0.8;
+.bg-logo-grid li {
+  width: 100%;
+  max-width: 180px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+}
+
+.bg-logo {
+  width: auto;
+  max-width: 100%;
+  height: 44px;
   object-fit: contain;
-  width: 140px;
-  min-height: 7rem;
-  max-height: 7rem;
-  transition: opacity 0.4s;
-  flex: none;
+  opacity: 0.82;
+  transition: opacity 0.2s ease;
 }
 
-.client-logo:hover {
+.bg-logo:hover {
   opacity: 1;
 }
 
-.client-logo.logo-darken {
+.bg-logo.logo-darken {
   filter: brightness(0);
-  opacity: 0.75;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(calc(0% + 50px));
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slidealt {
-  0% {
-    transform: translateX(calc(0% + 50px));
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.logo-animate {
-  animation: slide 35s infinite linear !important;
-}
-
-.logo-animate-alt {
-  animation: slidealt 35s infinite linear reverse !important;
-}
-
-.logo-fast {
-  animation-duration: 28s !important;
-}
-
-.home-logo-left-gradient {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 10%;
-  z-index: 2;
-  pointer-events: none;
-  background-image: linear-gradient(90deg, #fff, #fff0);
-}
-
-.home-logo-left-gradient.right {
-  inset: 0 0 0 auto;
-  background-image: linear-gradient(270deg, #fff, #fff0);
+  opacity: 0.78;
 }
 
 /* ── Responsive ── */
@@ -1110,6 +1060,11 @@ body > .top,
   .foot-grid {
     grid-template-columns: 1fr;
   }
+
+  .bg-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1127,14 +1082,8 @@ body > .top,
     transform: translateY(-28px);
   }
 
-  .client-logo {
-    width: 110px;
-    min-height: 5rem;
-    max-height: 5rem;
-  }
-
-  .home-logo-wrapper.bottom {
-    margin-top: -1rem;
+  .bg-logo {
+    height: 38px;
   }
 }
 
@@ -1147,12 +1096,6 @@ body > .top,
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .logo-animate,
-  .logo-animate-alt,
-  .logo-fast {
-    animation: none !important;
   }
 
   .hero-video {
