@@ -329,11 +329,11 @@ body > .top,
 }
 
 .display {
-  font-size: clamp(2.25rem, 5.2vw, 3.85rem);
+  font-size: clamp(2.05rem, 4.6vw, 3.35rem);
   font-weight: 600;
   letter-spacing: -0.035em;
-  line-height: 1.12;
-  max-width: 15.5em;
+  line-height: 1.18;
+  max-width: 22em;
   text-wrap: balance;
 }
 
