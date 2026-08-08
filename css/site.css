@@ -924,9 +924,6 @@ body > .top,
 
 .logos-marquee {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
 }
 
 .marquee-row {
@@ -940,18 +937,14 @@ body > .top,
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 3.25rem;
+  gap: 3.75rem;
   width: max-content;
   height: 100%;
   will-change: transform;
 }
 
 .marquee-ltr {
-  animation: marquee-ltr 42s linear infinite;
-}
-
-.marquee-rtl {
-  animation: marquee-rtl 48s linear infinite;
+  animation: marquee-ltr 36s linear infinite;
 }
 
 @keyframes marquee-ltr {
@@ -960,15 +953,6 @@ body > .top,
   }
   to {
     transform: translateX(-50%);
-  }
-}
-
-@keyframes marquee-rtl {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
   }
 }
 
@@ -1141,8 +1125,7 @@ body > .top,
     display: none;
   }
 
-  .marquee-ltr,
-  .marquee-rtl {
+  .marquee-ltr {
     animation: none;
   }
 }
