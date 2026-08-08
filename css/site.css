@@ -384,9 +384,18 @@ body > .top,
   max-width: 28rem;
 }
 
+/* English hero line 2 is longer characters-wise; don't force a short measure box */
+html[lang="en"] .thesis-belief {
+  max-width: min(100%, 42rem);
+}
+
 @media (min-width: 900px) {
   .thesis-belief {
     white-space: nowrap;
+  }
+
+  html[lang="en"] .thesis-belief {
+    max-width: none;
   }
 }
 
