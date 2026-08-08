@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=bg-grid-v1">
+    <link rel="stylesheet" href="css/site.css?v=bg-marquee-v2">
     <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
   </head>
   <body>
@@ -290,14 +290,40 @@
 
           <div class="bg-orgs" id="background">
             <p class="sx-bg-label">背景机构</p>
-            <ul class="bg-logo-grid" aria-label="团队背景相关机构">
-              <li><img src="assets/logos/hkust-word.png" alt="香港科技大学" class="bg-logo logo-darken" width="160" height="56" loading="lazy"></li>
-              <li><img src="assets/logos/hku.svg" alt="香港大学" class="bg-logo" width="160" height="56" loading="lazy"></li>
-              <li><img src="assets/logos/tsinghua.svg" alt="清华大学" class="bg-logo" width="160" height="56" loading="lazy"></li>
-              <li><img src="assets/logos/jlu.png" alt="吉林大学" class="bg-logo" width="160" height="56" loading="lazy"></li>
-              <li><img src="assets/logos/baidu.svg" alt="百度" class="bg-logo" width="160" height="56" loading="lazy"></li>
-              <li><img src="assets/logos/dji-dark.svg" alt="大疆" class="bg-logo" width="160" height="56" loading="lazy"></li>
-            </ul>
+            <div class="logos-marquee" aria-label="团队背景相关机构滚动展示">
+              <div class="marquee-row">
+                <div class="marquee-track marquee-ltr">
+                  <img class="bg-logo logo-darken" src="assets/logos/hkust-word.png" alt="香港科技大学" width="160" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/hku.svg" alt="香港大学" width="160" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/hkbu.svg" alt="香港浸会大学" width="160" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/jlu.png" alt="吉林大学" width="120" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/baidu.svg" alt="百度" width="140" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/dji-dark.svg" alt="大疆" width="120" height="48" loading="eager">
+                  <img class="bg-logo logo-darken" src="assets/logos/hkust-word.png" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/hku.svg" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/hkbu.svg" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/jlu.png" alt="" width="120" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/baidu.svg" alt="" width="140" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/dji-dark.svg" alt="" width="120" height="48" loading="eager" aria-hidden="true">
+                </div>
+              </div>
+              <div class="marquee-row">
+                <div class="marquee-track marquee-rtl">
+                  <img class="bg-logo" src="assets/logos/dji-dark.svg" alt="" width="120" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/baidu.svg" alt="" width="140" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/jlu.png" alt="" width="120" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/hkbu.svg" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/hku.svg" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo logo-darken" src="assets/logos/hkust-word.png" alt="" width="160" height="48" loading="eager" aria-hidden="true">
+                  <img class="bg-logo" src="assets/logos/dji-dark.svg" alt="大疆" width="120" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/baidu.svg" alt="百度" width="140" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/jlu.png" alt="吉林大学" width="120" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/hkbu.svg" alt="香港浸会大学" width="160" height="48" loading="eager">
+                  <img class="bg-logo" src="assets/logos/hku.svg" alt="香港大学" width="160" height="48" loading="eager">
+                  <img class="bg-logo logo-darken" src="assets/logos/hkust-word.png" alt="香港科技大学" width="160" height="48" loading="eager">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
